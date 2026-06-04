@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Emberforge Works — Custom Operational Software</title>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -455,7 +459,7 @@
     <span class="kicker">Get started</span>
     <h2>Tell us what you're trying to build. We'll start with a Blueprint.</h2>
     <button type="button" class="btn" onclick="openContact()">Book your Blueprint</button>
-    <div class="cta-sub">or email <a href="mailto:contact@emberforgeworks.com" style="color:var(--muted)">contact@emberforgeworks.com</a></div>
+    <div class="cta-sub">Tell us about your project — we'll reply within a day.</div>
   </div>
 </section>
 
@@ -565,7 +569,7 @@
     }catch(err){
       btn.disabled=false; btn.textContent='Send inquiry';
       msg.className='form-msg err';
-      msg.innerHTML='Something went wrong sending that. Email us directly at <a href="mailto:contact@emberforgeworks.com" style="color:var(--ember-2)">contact@emberforgeworks.com</a>.';
+      msg.innerHTML='Something went wrong sending that — please try again in a moment.';
     }
   }
 </script>
