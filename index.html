@@ -196,6 +196,62 @@
   .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.16,.84,.44,1)}
   .reveal.in{opacity:1;transform:none}
 
+  /* CONTACT MODAL */
+  button.btn{border:none;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+  .modal-overlay{
+    position:fixed;inset:0;z-index:1000;display:none;
+    align-items:center;justify-content:center;padding:24px;
+    background:rgba(6,8,10,.78);backdrop-filter:blur(8px);
+    opacity:0;transition:opacity .22s ease;
+  }
+  .modal-overlay.open{display:flex;opacity:1}
+  .modal{
+    width:100%;max-width:540px;max-height:92vh;overflow-y:auto;
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:34px 32px;position:relative;
+    box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 60px var(--glow);
+    transform:translateY(14px);transition:transform .22s cubic-bezier(.16,.84,.44,1);
+  }
+  .modal-overlay.open .modal{transform:none}
+  .modal-close{
+    position:absolute;top:16px;right:16px;width:34px;height:34px;
+    background:transparent;border:1px solid var(--line);border-radius:8px;
+    color:var(--muted);font-size:18px;line-height:1;cursor:pointer;transition:.2s;
+  }
+  .modal-close:hover{border-color:var(--ember);color:var(--ember-2)}
+  .modal h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1.12;margin:10px 0 8px}
+  .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;
+  }
+  .field label .opt{color:var(--muted-2);text-transform:none;letter-spacing:0}
+  .field input,.field textarea{
+    width:100%;background:var(--bg);border:1px solid var(--line);border-radius:9px;
+    color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:15px;
+    padding:11px 13px;transition:.18s;resize:vertical;
+  }
+  .field textarea{min-height:62px;line-height:1.5}
+  .field input:focus,.field textarea:focus{
+    outline:none;border-color:var(--ember);box-shadow:0 0 0 3px var(--glow);
+  }
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .modal .btn{width:100%;text-align:center;margin-top:8px}
+  .modal .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .form-msg{font-size:13.5px;margin-top:14px;display:none}
+  .form-msg.err{display:block;color:#ff8c6b}
+  .form-success{text-align:center;padding:18px 4px}
+  .form-success .check{
+    width:54px;height:54px;margin:0 auto 18px;border-radius:50%;
+    background:linear-gradient(120deg,var(--ember-2),var(--ember));
+    display:flex;align-items:center;justify-content:center;
+    color:#1a1206;font-size:26px;box-shadow:0 0 28px var(--glow);
+  }
+  .form-success h3{margin-bottom:8px}
+  .form-success p{color:var(--muted);font-size:.95rem}
+
   @media(max-width:980px){ .pkg-grid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:760px){
     .grid{grid-template-columns:1fr}
@@ -217,7 +273,7 @@
     <div class="nav-links">
       <a href="#about" class="link">About</a>
       <a href="#packages" class="link">Packages</a>
-      <a href="#contact" class="cta">Start a Blueprint</a>
+      <a href="#contact" class="cta" onclick="openContact();return false;">Start a Blueprint</a>
     </div>
   </div>
 </nav>
@@ -398,8 +454,8 @@
   <div class="wrap">
     <span class="kicker">Get started</span>
     <h2>Tell us what you're trying to build. We'll start with a Blueprint.</h2>
-    <a href="mailto:hello@emberforgeworks.com" class="btn">Book your Blueprint</a>
-    <div class="cta-sub">hello@emberforgeworks.com</div>
+    <button type="button" class="btn" onclick="openContact()">Book your Blueprint</button>
+    <div class="cta-sub">or email <a href="mailto:contact@emberforgeworks.com" style="color:var(--muted)">contact@emberforgeworks.com</a></div>
   </div>
 </section>
 
@@ -421,6 +477,97 @@
     });
   },{threshold:.12});
   document.querySelectorAll(".reveal").forEach((el,i)=>{ if(el.closest("header")) el.dataset.d = i*110; io.observe(el); });
+</script>
+
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" onclick="closeContact()" aria-label="Close">&times;</button>
+    <div id="formWrap">
+      <span class="kicker">Start a Blueprint</span>
+      <h3 id="cmTitle">Tell us what you're trying to solve.</h3>
+      <p class="modal-sub">A few details and we'll be in touch. The more you share, the sharper our first conversation.</p>
+
+      <div class="field">
+        <label for="cName">Name</label>
+        <input id="cName" type="text" autocomplete="name" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label for="cEmail">Email</label>
+        <input id="cEmail" type="email" autocomplete="email" placeholder="you@company.com">
+      </div>
+      <div class="field">
+        <label for="cPhone">Phone <span class="opt">(optional)</span></label>
+        <input id="cPhone" type="tel" autocomplete="tel" placeholder="(000) 000-0000">
+      </div>
+      <div class="field">
+        <label for="cProblem">What's the biggest problem you're trying to solve?</label>
+        <textarea id="cProblem" placeholder="The thing that's costing you time or money right now."></textarea>
+      </div>
+      <div class="field">
+        <label for="cTried">What have you tried so far? <span class="opt">(optional)</span></label>
+        <textarea id="cTried" placeholder="Spreadsheets, off-the-shelf tools, internal builds, nothing yet…"></textarea>
+      </div>
+      <div class="field">
+        <label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label>
+        <textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea>
+      </div>
+
+      <!-- honeypot: hidden from humans, catches bots -->
+      <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
+
+      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Send inquiry</button>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="check">&#10003;</div>
+      <h3>Got it — thanks.</h3>
+      <p>Your inquiry is on its way. We'll reply to the email you provided, usually within a day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const cm = document.getElementById('contactModal');
+  function openContact(){ cm.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('cName').focus(),120); }
+  function closeContact(){ cm.classList.remove('open'); document.body.style.overflow=''; }
+  cm.addEventListener('click', e=>{ if(e.target===cm) closeContact(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape' && cm.classList.contains('open')) closeContact(); });
+
+  async function submitContact(){
+    const msg = document.getElementById('formMsg');
+    const btn = document.getElementById('cSubmit');
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const problem = document.getElementById('cProblem').value.trim();
+    msg.className='form-msg';
+    if(!name || !email){ msg.className='form-msg err'; msg.textContent='Please add your name and email.'; return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.className='form-msg err'; msg.textContent='That email doesn\u2019t look right — mind checking it?'; return; }
+    if(!problem){ msg.className='form-msg err'; msg.textContent='Tell us the biggest problem you\u2019re trying to solve — even a sentence helps.'; document.getElementById('cProblem').focus(); return; }
+
+    const payload = {
+      name, email,
+      phone: document.getElementById('cPhone').value.trim(),
+      problem,
+      tried: document.getElementById('cTried').value.trim(),
+      why: document.getElementById('cWhy').value.trim(),
+      website: document.getElementById('cWebsite').value.trim()
+    };
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try{
+      const res = await fetch('/api/contact', {
+        method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)
+      });
+      if(!res.ok) throw new Error('bad status');
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('formSuccess').style.display='block';
+    }catch(err){
+      btn.disabled=false; btn.textContent='Send inquiry';
+      msg.className='form-msg err';
+      msg.innerHTML='Something went wrong sending that. Email us directly at <a href="mailto:contact@emberforgeworks.com" style="color:var(--ember-2)">contact@emberforgeworks.com</a>.';
+    }
+  }
 </script>
 
 </body>
