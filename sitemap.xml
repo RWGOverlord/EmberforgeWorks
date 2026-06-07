@@ -6,6 +6,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.emberforgeworks.com/how-we-build/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.emberforgeworks.com/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

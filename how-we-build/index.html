@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How We'd Build It — Emberforge Works</title>
+<meta name="description" content="Common small business workflows Emberforge Works can turn into custom software — client portals, job management, internal dashboards, partner portals, pipelines, and reporting tools.">
+<link rel="canonical" href="https://www.emberforgeworks.com/how-we-build/" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;--bg-2:#101317;--panel:#14181d;--line:#23282f;
+    --ink:#ecebe6;--muted:#8b919b;--muted-2:#646a73;
+    --ember:#ff7a18;--ember-2:#ffb347;--glow:rgba(255,122,24,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember-2);font-weight:500}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(11,13,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo-mark{height:30px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:22px}
+  .nav-links a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a.link:hover,.nav-links a.link.active{color:var(--ember-2)}
+  nav a.cta{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:9px 16px;border-radius:8px;transition:.2s}
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
+
+  /* hamburger (mobile only) */
+  .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
+  .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s ease;transform-origin:center}
+  .hamburger span+span{margin-top:5px}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{
+    display:none;position:fixed;top:69px;left:0;right:0;z-index:99;
+    background:rgba(11,13,16,.97);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:10px 28px 20px;
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
+  .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
+
+  /* HERO */
+  header{position:relative;padding:104px 0 70px;overflow:hidden}
+  header::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(20px);pointer-events:none}
+  .hero{position:relative;max-width:840px}
+  h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.5rem,5.6vw,4.2rem);line-height:1.03;letter-spacing:-.025em;margin:22px 0 24px}
+  h1 .ember{background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:var(--muted);max-width:640px}
+
+  /* SECTION SHELL */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  .sec-head{max-width:680px;margin-bottom:48px}
+  .sec-head h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.1;margin-top:14px}
+
+  /* INTRO */
+  .intro-copy{max-width:680px;color:var(--muted);font-size:1.06rem;display:flex;flex-direction:column;gap:16px;margin-bottom:34px}
+  .callout{border-left:2px solid var(--ember);background:linear-gradient(90deg,rgba(255,122,24,.07),transparent);padding:24px 28px;border-radius:0 12px 12px 0;max-width:760px}
+  .callout p{font-family:"Bricolage Grotesque";font-weight:600;font-size:clamp(1.15rem,2.1vw,1.55rem);color:var(--ink);letter-spacing:-.01em;line-height:1.28}
+
+  /* USE CASES */
+  .usecases{display:flex;flex-direction:column;gap:20px}
+  .usecase{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:34px 32px;position:relative;overflow:hidden;transition:.25s}
+  .usecase::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--ember),var(--ember-2));opacity:0;transition:.25s}
+  .usecase:hover{border-color:#33373f;transform:translateY(-3px)}
+  .usecase:hover::before{opacity:1}
+  .uc-head{display:flex;align-items:baseline;gap:15px;margin-bottom:24px}
+  .uc-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ember-2);letter-spacing:.1em}
+  .uc-head h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.5rem;letter-spacing:-.01em}
+  .uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .uc-block{margin-bottom:18px}
+  .uc-block:last-child{margin-bottom:0}
+  .uc-label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:7px}
+  .uc-label.accent{color:var(--ember-2)}
+  .uc-block p{color:var(--muted);font-size:.97rem}
+  .uc-build{border-left:1px solid var(--line);padding-left:36px}
+  .uc-build .uc-block p{color:var(--ink)}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
+  .chip{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.02)}
+
+  /* CTA */
+  .cta-sec{text-align:center;padding:104px 0}
+  .cta-sec h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.025em;max-width:740px;margin:16px auto 22px;line-height:1.06}
+  .cta-sec .cta-copy{color:var(--muted);max-width:600px;margin:0 auto 30px;font-size:1.05rem}
+  .btn{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;text-decoration:none;color:#1a1206;font-weight:500;background:linear-gradient(120deg,var(--ember-2),var(--ember));padding:15px 30px;border-radius:10px;transition:.22s;box-shadow:0 0 28px var(--glow);border:none;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 38px var(--glow)}
+  .cta-sub{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted-2);margin-top:18px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
+  footer .brand{font-size:16px}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* MODAL */
+  button.modal-close{cursor:pointer}
+  .modal-overlay{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,8,10,.78);backdrop-filter:blur(8px);opacity:0;transition:opacity .22s ease}
+  .modal-overlay.open{display:flex;opacity:1}
+  .modal{width:100%;max-width:540px;max-height:92vh;overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px 32px;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 60px var(--glow);transform:translateY(14px);transition:transform .22s cubic-bezier(.16,.84,.44,1)}
+  .modal-overlay.open .modal{transform:none}
+  .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:18px;line-height:1;transition:.2s}
+  .modal-close:hover{border-color:var(--ember);color:var(--ember-2)}
+  .modal h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1.12;margin:10px 0 8px}
+  .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .field label .opt{color:var(--muted-2);text-transform:none;letter-spacing:0}
+  .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:15px;padding:11px 13px;transition:.18s;resize:vertical}
+  .field textarea{min-height:62px;line-height:1.5}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px var(--glow)}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .modal .btn{width:100%;text-align:center;margin-top:8px}
+  .modal .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .form-msg{font-size:13.5px;margin-top:14px;display:none}
+  .form-msg.err{display:block;color:#ff8c6b}
+  .form-success{text-align:center;padding:18px 4px}
+  .form-success .check{width:54px;height:54px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(120deg,var(--ember-2),var(--ember));display:flex;align-items:center;justify-content:center;color:#1a1206;font-size:26px;box-shadow:0 0 28px var(--glow)}
+  .form-success h3{margin-bottom:8px}
+  .form-success p{color:var(--muted);font-size:.95rem}
+
+  @media(max-width:760px){
+    .uc-grid{grid-template-columns:1fr;gap:26px}
+    .uc-build{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px}
+    section{padding:60px 0}
+    header{padding:72px 0 52px}
+    .nav-links{display:none}
+    .hamburger{display:block}
+    .mobile-menu{display:block}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="nav-links">
+      <a href="/how-we-build/" class="link active">How We Build</a>
+      <a href="/#about" class="link">About</a>
+      <a href="/#packages" class="link">Packages</a>
+      <a href="/blog/" class="link">Insights</a>
+      <a href="#contact" class="cta" onclick="openContact();return false;">Start a Blueprint</a>
+    </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/how-we-build/" onclick="closeMenu()">How We Build</a>
+  <a href="/#about" onclick="closeMenu()">About</a>
+  <a href="/#packages" onclick="closeMenu()">Packages</a>
+  <a href="/blog/" onclick="closeMenu()">Insights</a>
+  <a href="#contact" class="mcta" onclick="closeMenu();openContact();return false;">Start a Blueprint</a>
+</div>
+
+<header>
+  <div class="wrap hero">
+    <span class="kicker reveal">How We'd Build It</span>
+    <h1 class="reveal">Most businesses don't need an app. They need a better way to <span class="ember">run the work they already do.</span></h1>
+    <p class="lead reveal">Common small business workflows we can turn into custom software — and what each one looks like once it's built.</p>
+  </div>
+</header>
+
+<section id="intro">
+  <div class="wrap">
+    <div class="intro-copy reveal">
+      <p>Most small businesses aren't short on effort. They're buried under spreadsheets, email threads, scattered forms, text messages, duplicate data entry, and manual follow-ups.</p>
+      <p>Custom software works best when it's built around a real workflow. These are the kinds of systems we can design after a Blueprint — each one shaped to how a business actually operates, not forced into someone else's template.</p>
+    </div>
+    <div class="callout reveal">
+      <p>You don't need an app just to have an app. You need a better way to manage the work that's already happening.</p>
+    </div>
+  </div>
+</section>
+
+<section id="usecases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Where Custom Software Pays Off</span>
+      <h2>Six workflows we turn into clean systems.</h2>
+    </div>
+
+    <div class="usecases">
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">01</span><h3>Client Portal</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>Clients send information through emails, texts, attachments, and scattered forms. Your team chases missing details, answers the same status questions, and organizes documents by hand.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Give clients one place to submit information, upload files, track progress, and stay in the loop.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A secure client portal with intake forms, document uploads, individual client accounts, status tracking, and an admin dashboard for your team.</p></div>
+            <div class="chips"><span class="chip">Client login</span><span class="chip">Intake forms</span><span class="chip">File uploads</span><span class="chip">Status updates</span><span class="chip">Admin dashboard</span><span class="chip">Automated emails</span><span class="chip">Internal notes</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">02</span><h3>Claims or Job Management Platform</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>Work comes in through forms, calls, email, and spreadsheets, then gets passed around by hand. Nobody has a clean view of where each job or claim actually stands.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Turn the full job lifecycle into one trackable workflow.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A system where customers submit requests, admins review and assign them, partners complete the work, and everyone sees the current status in real time.</p></div>
+            <div class="chips"><span class="chip">Claim / job intake</span><span class="chip">Admin dashboard</span><span class="chip">Partner dashboard</span><span class="chip">Assignment workflow</span><span class="chip">Photo &amp; doc uploads</span><span class="chip">Status tracking</span><span class="chip">Reporting</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">03</span><h3>Internal Operations Dashboard</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>The business runs on spreadsheets, sticky notes, inboxes, and "ask so-and-so" knowledge. The information exists — it's just scattered across too many places.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Centralize what matters so the team can see what needs attention.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A private dashboard that tracks clients, tasks, deadlines, forms, payments, and statuses in one place — with reports you don't have to rebuild every week.</p></div>
+            <div class="chips"><span class="chip">Staff login</span><span class="chip">Client / project records</span><span class="chip">Task tracking</span><span class="chip">Due dates</span><span class="chip">Notes</span><span class="chip">Reporting</span><span class="chip">Exportable data</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">04</span><h3>Partner or Vendor Portal</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>Outside partners need assignments, documents, and updates — but it all happens through email chains, phone calls, and manual follow-up.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Give partners a controlled portal where they see only what they need.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A partner-facing dashboard with assigned work, required actions, upload fields, status changes, and a clear history of what's been done.</p></div>
+            <div class="chips"><span class="chip">Partner accounts</span><span class="chip">Role-based access</span><span class="chip">Work queue</span><span class="chip">Uploads</span><span class="chip">Completion status</span><span class="chip">Admin approvals</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">05</span><h3>Scheduling &amp; Pipeline System</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>You're juggling appointments, due dates, follow-ups, client stages, and reminders across a handful of disconnected tools.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Build one pipeline that shows what stage every lead, client, and job is in.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A workflow board that tracks leads and active clients, key dates, appointment history, and the next step for each one.</p></div>
+            <div class="chips"><span class="chip">Lead / client pipeline</span><span class="chip">Calendar &amp; dates</span><span class="chip">Follow-up reminders</span><span class="chip">Stage-based workflow</span><span class="chip">Client notes</span><span class="chip">Simple reporting</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase reveal">
+        <div class="uc-head"><span class="uc-num">06</span><h3>Custom Reporting Tool</h3></div>
+        <div class="uc-grid">
+          <div class="uc-narrative">
+            <div class="uc-block"><span class="uc-label">The pain</span><p>Reports get built by hand every week — copying data from different tools into spreadsheets. Owners and managers can't quickly see what's actually happening.</p></div>
+            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Automate the reporting layer so the numbers are there without the weekly rebuild.</p></div>
+          </div>
+          <div class="uc-build">
+            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A dashboard that pulls key business data together, filters it by date, status, client, or team member, and exports clean reports.</p></div>
+            <div class="chips"><span class="chip">KPI dashboard</span><span class="chip">Filters</span><span class="chip">CSV / PDF export</span><span class="chip">Scheduled reports</span><span class="chip">Data cleanup</span><span class="chip">Integrations</span></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="wrap">
+    <span class="kicker">Start Here</span>
+    <h2>Have a workflow like one of these?</h2>
+    <p class="cta-copy">Every Emberforge Works project starts with a Blueprint. We map your process, define the right build, and hand you a clear scope and fixed-price quote before any development begins. You keep the Blueprint whether you build with us or not.</p>
+    <button type="button" class="btn" onclick="openContact()">Start With a Blueprint</button>
+    <div class="cta-sub">Tell us about your workflow — we'll reply within a day.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL (same component as the homepage) -->
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" onclick="closeContact()" aria-label="Close">&times;</button>
+    <div id="formWrap">
+      <span class="kicker">Start a Blueprint</span>
+      <h3 id="cmTitle">Tell us what you're trying to solve.</h3>
+      <p class="modal-sub">A few details and we'll be in touch. The more you share, the sharper our first conversation.</p>
+      <div class="field"><label for="cName">Name</label><input id="cName" type="text" autocomplete="name" placeholder="Your name"></div>
+      <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" placeholder="you@company.com"></div>
+      <div class="field"><label for="cPhone">Phone <span class="opt">(optional)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"></div>
+      <div class="field"><label for="cProblem">What's the biggest problem you're trying to solve?</label><textarea id="cProblem" placeholder="The thing that's costing you time or money right now."></textarea></div>
+      <div class="field"><label for="cTried">What have you tried so far? <span class="opt">(optional)</span></label><textarea id="cTried" placeholder="Spreadsheets, off-the-shelf tools, internal builds, nothing yet…"></textarea></div>
+      <div class="field"><label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label><textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Send inquiry</button>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="check">&#10003;</div>
+      <h3>Got it — thanks.</h3>
+      <p>Your inquiry is on its way. We'll reply to the email you provided, usually within a day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.style.transitionDelay = (e.target.dataset.d || (i*60)) + "ms"; e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach((el,i)=>{ if(el.closest("header")) el.dataset.d = i*110; io.observe(el); });
+
+  // mobile menu
+  function toggleMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    const open=m.classList.toggle('open');
+    h.classList.toggle('active', open);
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    m.classList.remove('open'); h.classList.remove('active'); h.setAttribute('aria-expanded','false');
+  }
+
+  // contact modal (identical behavior to homepage)
+  const cm = document.getElementById('contactModal');
+  function openContact(){ cm.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('cName').focus(),120); }
+  function closeContact(){ cm.classList.remove('open'); document.body.style.overflow=''; }
+  cm.addEventListener('click', e=>{ if(e.target===cm) closeContact(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ if(cm.classList.contains('open')) closeContact(); closeMenu(); } });
+
+  async function submitContact(){
+    const msg = document.getElementById('formMsg');
+    const btn = document.getElementById('cSubmit');
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const problem = document.getElementById('cProblem').value.trim();
+    msg.className='form-msg';
+    if(!name || !email){ msg.className='form-msg err'; msg.textContent='Please add your name and email.'; return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.className='form-msg err'; msg.textContent='That email doesn’t look right — mind checking it?'; return; }
+    if(!problem){ msg.className='form-msg err'; msg.textContent='Tell us the biggest problem you’re trying to solve — even a sentence helps.'; document.getElementById('cProblem').focus(); return; }
+    const payload = { name, email, phone: document.getElementById('cPhone').value.trim(), problem, tried: document.getElementById('cTried').value.trim(), why: document.getElementById('cWhy').value.trim(), website: document.getElementById('cWebsite').value.trim() };
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try{
+      const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+      if(!res.ok) throw new Error('bad status');
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('formSuccess').style.display='block';
+    }catch(err){
+      btn.disabled=false; btn.textContent='Send inquiry';
+      msg.className='form-msg err'; msg.innerHTML='Something went wrong sending that — please try again in a moment.';
+    }
+  }
+</script>
+
+</body>
+</html>
