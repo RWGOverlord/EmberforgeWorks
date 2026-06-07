@@ -88,6 +88,21 @@
   .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
   .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
 
+  /* build flow / de-risk */
+  .flow-head{margin-bottom:36px}
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:6px}
+  .flow-step{position:relative;padding-right:22px}
+  .flow-step:not(:last-child)::after{content:"";position:absolute;top:16px;left:46px;right:8px;height:2px;background:var(--line);z-index:1}
+  .flow-num{width:34px;height:34px;border-radius:50%;border:1px solid var(--ember);color:var(--ember-2);font-family:"IBM Plex Mono",monospace;font-size:12.5px;display:flex;align-items:center;justify-content:center;background:var(--bg);position:relative;z-index:2;margin-bottom:15px}
+  .flow-step h4{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.02rem;margin-bottom:7px;color:var(--ink)}
+  .flow-step p{font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:11px}
+  .flow-check{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ember-2);display:inline-flex;align-items:center;gap:6px;line-height:1.3}
+  .flow-check::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--ember);box-shadow:0 0 7px var(--ember)}
+  .flow-foot{display:flex;gap:30px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
+  .flow-assure{flex:1;min-width:210px}
+  .flow-assure h5{font-family:"Bricolage Grotesque";font-weight:700;font-size:.98rem;color:var(--ink);margin-bottom:6px}
+  .flow-assure p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+
   /* HERO */
   header{position:relative;padding:118px 0 96px;overflow:hidden}
   header::before{
@@ -279,6 +294,9 @@
     .approach .wrap{grid-template-columns:1fr;gap:40px}
     .tri{grid-template-columns:1fr}
     section{padding:68px 0}
+    .flow{grid-template-columns:1fr;gap:24px}
+    .flow-step{padding-right:0}
+    .flow-step:not(:last-child)::after{display:none}
     header{padding:80px 0 64px}
     .proof-card{padding:34px 26px}
     .nav-links{display:none}
@@ -341,6 +359,18 @@
   </div>
 </header>
 
+
+<section id="bottlenecks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">Sound familiar?</span>
+      <h2>You know something's broken. You just can't always name the fix.</h2>
+    </div>
+    <p class="reveal" style="font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.65;color:var(--muted);max-width:780px;margin:0 0 30px;">Payments you can't cleanly track. Onboarding that drags on for days. A job that doesn't move until you're on the phone. A status nobody can answer without asking you. We've spent over a decade turning exactly these bottlenecks into systems that run themselves.</p>
+    <a href="/how-we-build/" class="reveal" style="display:inline-flex;align-items:center;gap:9px;font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:.03em;color:var(--ember-2);text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:3px;">See the six workflows we turn into clean systems &rarr;</a>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -378,7 +408,7 @@
       <span class="kicker">How we work</span>
       <h2 style="font-family:'Bricolage Grotesque';font-weight:700;font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:-.02em;line-height:1.1;margin:16px 0 22px;">Most software starts with a feature list. We start with your process.</h2>
       <p>Before a line of code, we map what moves through your business — where it slows down, where it breaks, and what it costs you in manual hours. Then we design the system around it.</p>
-      <p>The result is software that fits the way you operate today and scales as you grow — backed by over a decade of building enterprise workflow and integration systems in regulated industries. We also build with AI-assisted development, which means what used to take enterprise teams months now ships in weeks — without the enterprise price tag.</p>
+      <p>The result is software that fits the way you operate today and scales as you grow — backed by over a decade of building enterprise workflow and integration systems in regulated industries. And because we build with modern, AI-assisted tooling, work that once took enterprise teams months now ships in weeks — enterprise-grade systems, without the enterprise price tag or timeline.</p>
     </div>
     <div class="pillars reveal">
       <div class="pillar">
@@ -496,6 +526,64 @@
         </ul>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="how-builds-run">
+  <div class="wrap">
+    <div class="sec-head reveal flow-head">
+      <span class="kicker">How a build runs</span>
+      <h2>A five-figure build shouldn't feel like a leap of faith.</h2>
+      <p class="lead-note">Every build — from a Launch app to a full Operations Platform — runs in controlled stages. You see working software at each step and sign off before it moves forward, and the price is fixed at the Blueprint, so the number never moves on you mid-project.</p>
+    </div>
+
+    <div class="flow reveal">
+      <div class="flow-step">
+        <div class="flow-num">01</div>
+        <h4>Blueprint</h4>
+        <p>We map the process and lock a fixed scope and price before any build begins.</p>
+        <span class="flow-check">You approve the plan</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">02</div>
+        <h4>Foundation</h4>
+        <p>Architecture and data model built first — the structure everything else sits on.</p>
+        <span class="flow-check">You see the shape</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">03</div>
+        <h4>Built in stages</h4>
+        <p>Features arrive as working pieces, not one big reveal at the end. You test each as it lands.</p>
+        <span class="flow-check">Demo &amp; feedback each stage</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">04</div>
+        <h4>Refine</h4>
+        <p>We iterate on what you've seen until it matches how you actually work.</p>
+        <span class="flow-check">Nothing ships without sign-off</span>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">05</div>
+        <h4>Launch &amp; support</h4>
+        <p>Deployed to your own domain, configured, and backed by a post-launch support window.</p>
+        <span class="flow-check">It's yours</span>
+      </div>
+    </div>
+
+    <div class="flow-foot reveal">
+      <div class="flow-assure">
+        <h5>Fixed price, set at the Blueprint</h5>
+        <p>You know the full number before the build starts. No runaway budget, no surprise invoices.</p>
+      </div>
+      <div class="flow-assure">
+        <h5>Working software at every stage</h5>
+        <p>You're never months in with nothing to show. Progress is visible from the first stage on.</p>
+      </div>
+      <div class="flow-assure">
+        <h5>Support without the lock-in</h5>
+        <p>After launch, the Care Plan is month-to-month. You stay because it's working — not because you're trapped in a contract.</p>
+      </div>
     </div>
   </div>
 </section>

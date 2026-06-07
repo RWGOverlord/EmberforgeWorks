@@ -1,3 +1,42 @@
+# Task: build the "How We'd Build It" page
+
+**Attached:** `how-we-build.html` — the full page mockup, already in the Emberforge design system. Use it as the build reference.
+
+## Goal
+A new page that helps small-business owners see what custom software could look like for them — framed as messy workflows turned into clean systems, not a technical services list. It feeds the Blueprint offer: we understand the workflow before quoting or building.
+
+## Route
+- Add at **`/how-we-build`** (clean, readable). Acceptable alternatives if you prefer: `/how-wed-build-it` or `/examples`. Pick one and use it consistently in nav + links.
+- Add a nav link to it in the homepage header (label: **"How We Build"**), and keep the existing nav items + "Start a Blueprint" CTA.
+
+## Reuse, don't rebuild
+The mockup inlines a lightweight copy of the design system so it renders standalone. In the real build, **reuse the existing components from `index.html`** instead:
+- Real nav (with the actual base64 logo `<img class="logo-mark">` + "Emberforge Works"), not the `.mark` gradient square placeholder in the mockup.
+- Real footer.
+- The existing **contact modal** and its `openContact()` / `submitContact()` script — do not duplicate a second modal. The page's CTA button and nav CTA should call the existing `openContact()`. The mockup includes a copy of the modal only so the button works in isolation; drop it in favor of the site's shared one.
+- Existing design tokens, `.kicker`, `.btn`, `.chip`, `.card`/section styling. The only genuinely new CSS is the `.usecase` / `.uc-*` / `.callout` block — pull that across.
+
+## Structure (matches the mockup, in order)
+1. Hero — kicker "How We'd Build It", H1 on the core idea ("Most businesses don't need an app…"), lead = the subtitle.
+2. Intro — two paragraphs + the ember callout ("You don't need an app just to have an app…").
+3. Use cases — section heading + **6 panels** (Client Portal, Claims/Job Management, Internal Ops Dashboard, Partner/Vendor Portal, Scheduling & Pipeline, Custom Reporting). Each panel: number + title, a left column with **The pain** + **The opportunity**, a right column with **What we'd build** + feature **chips**. Copy is final in the mockup.
+4. CTA — "Have a workflow like one of these?" + Blueprint copy + **"Start With a Blueprint"** button calling `openContact()`.
+5. Footer.
+
+## Meta / SEO
+- `<title>` and meta description are in the mockup `<head>`; carry them over.
+- Add the page to the sitemap and link it from the homepage nav (and footer if the homepage footer carries page links).
+
+## Acceptance
+- Page renders at the chosen route in the real Emberforge nav/footer, visually indistinguishable from the homepage.
+- The CTA and nav "Start a Blueprint" open the **existing** shared contact modal and submit through the existing `/api/contact` handler — no second modal or duplicate script.
+- Responsive: use-case panels collapse to a single column on mobile (breakpoint ~760px, as in the mockup); nav links hide as they do on the homepage.
+- No new fonts, colors, or components beyond the `.usecase`/`.callout` additions.
+
+## Tone (already baked into the copy — keep it)
+Practical, confident, plain. A business owner should read a panel and think "that's exactly what we're dealing with." Reinforces Emberforge as a workflow/software partner, not a cheap app builder.
+
+
 # Task: Build /blog — Emberforge Works (Static HTML Site)
 
 ## Context
