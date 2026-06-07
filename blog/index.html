@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights — Emberforge Works</title>
+<meta name="description" content="Practical guides on workflow automation, custom software, and the operational decisions that help professional service businesses stop patching and start scaling." />
+<link rel="canonical" href="https://www.emberforgeworks.com/blog/" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;
+    --bg-2:#101317;
+    --panel:#14181d;
+    --line:#23282f;
+    --ink:#ecebe6;
+    --muted:#8b919b;
+    --muted-2:#646a73;
+    --ember:#ff7a18;
+    --ember-2:#ffb347;
+    --glow:rgba(255,122,24,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"IBM Plex Sans",sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  a{color:inherit;text-decoration:none}
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--ember-2);font-weight:500;
+  }
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;
+    backdrop-filter:blur(12px);
+    background:rgba(11,13,16,.72);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo-mark{height:30px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:22px}
+  .nav-links a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a.link:hover,.nav-links a.link.active{color:var(--ember-2)}
+  nav a.cta{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;
+    color:var(--ink);text-decoration:none;border:1px solid var(--line);
+    padding:9px 16px;border-radius:8px;transition:.2s;
+  }
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
+  @media(max-width:680px){.nav-links a.link{display:none}}
+
+  /* HERO */
+  header{position:relative;padding:96px 0 40px;overflow:hidden}
+  header::before{
+    content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);
+    width:900px;height:620px;border-radius:50%;
+    background:radial-gradient(circle,var(--glow),transparent 62%);
+    filter:blur(20px);pointer-events:none;
+  }
+  .hero{position:relative;max-width:780px}
+  h1{
+    font-family:"Bricolage Grotesque";font-weight:800;
+    font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.04;letter-spacing:-.025em;
+    margin:20px 0 22px;
+  }
+  h1 .ember{
+    background:linear-gradient(120deg,var(--ember-2),var(--ember));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{font-size:clamp(1.02rem,1.5vw,1.2rem);color:var(--muted);max-width:620px}
+
+  /* CATEGORY FILTER */
+  .cats{display:flex;gap:9px;flex-wrap:wrap;padding:8px 0 48px}
+  .cat{
+    background:transparent;
+    border:1px solid var(--line);border-radius:8px;
+    padding:8px 16px;
+    font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;
+    letter-spacing:.04em;
+    color:var(--muted);cursor:pointer;transition:.18s;
+  }
+  .cat:hover{border-color:var(--ember);color:var(--ember-2)}
+  .cat.active{background:linear-gradient(120deg,var(--ember-2),var(--ember));color:#1a1206;border-color:transparent;font-weight:500}
+
+  /* FEATURED */
+  .featured{padding:0 0 48px}
+  .feat-card{
+    display:grid;grid-template-columns:1.05fr 1fr;gap:0;
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;transition:.25s;
+  }
+  .feat-card:hover{border-color:#33373f;transform:translateY(-3px)}
+  .feat-img{
+    min-height:340px;position:relative;overflow:hidden;
+    background:linear-gradient(150deg,#1d130a,#2a1a0c 55%,#13161b);
+  }
+  .feat-img::before{
+    content:"";position:absolute;bottom:-60px;right:-60px;
+    width:320px;height:320px;
+    background:radial-gradient(circle,rgba(255,122,24,.32),transparent 65%);
+  }
+  .feat-img::after{
+    content:"";position:absolute;inset:0;
+    background:repeating-linear-gradient(-45deg,rgba(255,255,255,.02) 0,rgba(255,255,255,.02) 1px,transparent 1px,transparent 9px);
+  }
+  .feat-badge{
+    position:absolute;top:20px;left:20px;z-index:1;
+    background:linear-gradient(120deg,var(--ember-2),var(--ember));color:#1a1206;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:500;
+    letter-spacing:.1em;text-transform:uppercase;
+    padding:6px 12px;border-radius:6px;
+  }
+  .feat-body{padding:44px;display:flex;flex-direction:column;justify-content:center}
+  .feat-body h2{
+    font-family:"Bricolage Grotesque";font-weight:700;
+    font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.12;letter-spacing:-.02em;
+    margin:14px 0 16px;
+  }
+  .feat-body p{font-size:15.5px;color:var(--muted);margin-bottom:26px;line-height:1.7}
+  .byline{display:flex;align-items:center;gap:10px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted-2)}
+  .byline .av{
+    width:32px;height:32px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(135deg,var(--ember-2),var(--ember));
+    box-shadow:0 0 14px var(--glow);
+  }
+  .byline b{color:var(--ink);font-weight:500}
+  @media(max-width:820px){
+    .feat-card{grid-template-columns:1fr}
+    .feat-img{min-height:200px}
+    .feat-body{padding:28px}
+  }
+
+  /* POST GRID */
+  .grid-section{padding:0 0 96px}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .post{
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:14px;
+    overflow:hidden;display:flex;flex-direction:column;
+    transition:.25s;position:relative;
+  }
+  .post::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--ember),var(--ember-2));
+    opacity:0;transition:.25s;z-index:2;
+  }
+  .post:hover{border-color:#33373f;transform:translateY(-3px)}
+  .post:hover::before{opacity:1}
+  .post-img{height:158px;position:relative;overflow:hidden}
+  .post-tag{
+    position:absolute;top:12px;left:12px;
+    background:rgba(11,13,16,.72);backdrop-filter:blur(6px);
+    color:var(--ink);
+    font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 10px;border-radius:6px;border:1px solid var(--line);
+  }
+  .post-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .post-body h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:18px;line-height:1.25;letter-spacing:-.01em;margin-bottom:10px}
+  .post-body p{font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.6;flex:1}
+  .post-body .byline{font-size:12px}
+  .post-body .byline .av{width:24px;height:24px}
+
+  .gi1 .post-img{background:linear-gradient(135deg,#0d1c18,#1b3832)}
+  .gi2 .post-img{background:linear-gradient(135deg,#1a0f07,#301b0b)}
+  .gi3 .post-img{background:linear-gradient(135deg,#0f1120,#1b2040)}
+  .gi4 .post-img{background:linear-gradient(135deg,#150f1c,#2a1a38)}
+  .gi5 .post-img{background:linear-gradient(135deg,#0c1618,#122430)}
+
+  .empty{display:none;grid-column:1/-1;text-align:center;color:var(--muted-2);font-family:"IBM Plex Mono",monospace;font-size:14px;padding:40px 0}
+  @media(max-width:820px){.pgrid{grid-template-columns:1fr}}
+  @media(min-width:560px) and (max-width:820px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
+  footer .brand{font-size:16px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="nav-links">
+      <a href="/#about" class="link">About</a>
+      <a href="/#packages" class="link">Packages</a>
+      <a href="/blog/" class="link active">Insights</a>
+      <a href="/#contact" class="cta">Start a Blueprint</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div class="wrap hero">
+    <span class="kicker">The Emberforge Works Blog</span>
+    <h1>Smarter systems for businesses ready to <span class="ember">stop patching.</span></h1>
+    <p class="lead">Plain-English guides on workflow automation, custom software, and the operational decisions that actually move the needle.</p>
+  </div>
+</header>
+
+<!-- CATEGORY FILTER -->
+<div class="wrap">
+  <div class="cats">
+    <button class="cat active" data-filter="all">All</button>
+    <button class="cat" data-filter="Business Systems">Business Systems</button>
+    <button class="cat" data-filter="Tech Decisions">Tech Decisions</button>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<section class="featured" data-category="Business Systems">
+  <div class="wrap">
+    <a href="/blog/the-spreadsheet-that-is-quietly-slowing-down-your-business/" class="feat-card">
+      <div class="feat-img">
+        <span class="feat-badge">Featured</span>
+      </div>
+      <div class="feat-body">
+        <span class="kicker">Business Systems</span>
+        <h2>The Spreadsheet That Is Quietly Slowing Down Your Business</h2>
+        <p>It worked fine at ten clients. Now it's one bad paste away from a billing error, a double-booked week, or a client who falls through the cracks entirely. Here's how to recognize when a spreadsheet has become a liability.</p>
+        <div class="byline">
+          <span class="av"></span>
+          <span>By <b>Erick Quintanilla</b> · 7 min read</span>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- POST GRID -->
+<section class="grid-section">
+  <div class="wrap">
+    <div class="pgrid">
+
+      <a href="/blog/when-custom-software-makes-sense-for-a-small-business/" class="post gi2" data-category="Tech Decisions">
+        <div class="post-img"><span class="post-tag">Tech Decisions</span></div>
+        <div class="post-body">
+          <h3>When Custom Software Makes Sense for a Small Business</h3>
+          <p>Not every business needs a custom build — but some do, and waiting too long costs more than the software would have. A decision framework for service businesses.</p>
+          <div class="byline"><span class="av"></span><span>By <b>Erick Quintanilla</b></span></div>
+        </div>
+      </a>
+
+      <p class="empty">No posts in this category yet — check back soon.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const cats = document.querySelectorAll(".cat");
+    // Every filterable item carries a data-category attribute.
+    const items = document.querySelectorAll("[data-category]");
+    const empty = document.querySelector(".empty");
+
+    cats.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+        cats.forEach(c => c.classList.remove("active"));
+        btn.classList.add("active");
+
+        let visible = 0;
+        items.forEach(item => {
+          const show = filter === "all" || item.dataset.category === filter;
+          item.style.display = show ? "" : "none";
+          if (show) visible++;
+        });
+        if (empty) empty.style.display = visible === 0 ? "block" : "none";
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
