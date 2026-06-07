@@ -67,7 +67,24 @@
     padding:9px 16px;border-radius:8px;transition:.2s;
   }
   nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
-  @media(max-width:680px){.nav-links a.link{display:none}}
+
+  /* hamburger (mobile only) */
+  .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
+  .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s ease;transform-origin:center}
+  .hamburger span+span{margin-top:5px}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{
+    display:none;position:fixed;top:69px;left:0;right:0;z-index:99;
+    background:rgba(11,13,16,.97);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:10px 28px 20px;
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
+  .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
+  @media(max-width:760px){.nav-links{display:none}.hamburger{display:block}.mobile-menu{display:block}}
 
   /* ARTICLE */
   .article-head{position:relative;padding:72px 0 36px;overflow:hidden}
@@ -142,8 +159,32 @@
       <a href="/blog/" class="link">Insights</a>
       <a href="/#contact" class="cta">Start a Blueprint</a>
     </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/#about" onclick="closeMenu()">About</a>
+  <a href="/#packages" onclick="closeMenu()">Packages</a>
+  <a href="/blog/" onclick="closeMenu()">Insights</a>
+  <a href="/#contact" class="mcta" onclick="closeMenu()">Start a Blueprint</a>
+</div>
+
+<script>
+  function toggleMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    const open=m.classList.toggle('open');
+    h.classList.toggle('active', open);
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    m.classList.remove('open'); h.classList.remove('active'); h.setAttribute('aria-expanded','false');
+  }
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+</script>
 
 <!-- ARTICLE HEAD -->
 <div class="article-head">
