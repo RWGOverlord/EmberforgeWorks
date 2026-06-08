@@ -3,7 +3,7 @@
 // Deploy on Vercel; the page POSTs here from /api/contact.
 
 // --- Config (edit these two, or set as Vercel env vars) ---
-const TO_EMAIL   = process.env.CONTACT_TO   || 'erick.quintanilla@hotmail.com';                 // where leads land in your inbox
+const TO_EMAIL   = process.env.CONTACT_TO   || 'Erick@EmberforgeWorks.com';                 // where leads land in your inbox
 const FROM_EMAIL = process.env.CONTACT_FROM || 'Emberforge Works <noreply@emberforgeworks.com>'; // MUST be a Resend-verified domain
 // RESEND_API_KEY is read from the environment — never hardcode it. Set it in Vercel project settings.
 

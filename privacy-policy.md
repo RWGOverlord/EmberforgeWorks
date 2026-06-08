@@ -66,4 +66,4 @@ We may update this Privacy Policy from time to time. When we do, we will revise 
 If you have questions about this Privacy Policy or how we handle your information, contact us at:
 
 **Emberforge Works**
-Email: erick.quintanilla@hotmail.com
+Email: Erick@EmberforgeWorks.com
