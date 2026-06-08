@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y73F9LR5TM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y73F9LR5TM');
+</script>
+<title>Privacy Policy — Emberforge Works</title>
+<meta name="description" content="How Emberforge Works collects, uses, and shares information when you visit emberforgeworks.com or contact us through it.">
+<link rel="canonical" href="https://www.emberforgeworks.com/privacy/" />
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;--bg-2:#101317;--panel:#14181d;--line:#23282f;
+    --ink:#ecebe6;--muted:#8b919b;--muted-2:#646a73;
+    --ember:#ff7a18;--ember-2:#ffb347;--glow:rgba(255,122,24,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  a{color:inherit;text-decoration:none}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember-2);font-weight:500}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(11,13,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo-mark{height:30px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:22px}
+  .nav-links a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a.link:hover,.nav-links a.link.active{color:var(--ember-2)}
+  nav a.cta{font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:9px 16px;border-radius:8px;transition:.2s}
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
+
+  /* hamburger (mobile only) */
+  .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
+  .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s ease;transform-origin:center}
+  .hamburger span+span{margin-top:5px}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{
+    display:none;position:fixed;top:69px;left:0;right:0;z-index:99;
+    background:rgba(11,13,16,.97);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:10px 28px 20px;
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
+  .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
+
+  /* HERO */
+  header{position:relative;padding:96px 0 48px;overflow:hidden}
+  header::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(20px);pointer-events:none}
+  .hero{position:relative;max-width:840px}
+  h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.04;letter-spacing:-.025em;margin:20px 0 14px}
+  .hero p.eff{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted-2);letter-spacing:.02em}
+
+  /* LEGAL PROSE */
+  .legal{padding:8px 0 96px}
+  .legal .wrap{max-width:760px}
+  .legal .intro{color:var(--muted);font-size:1.06rem;margin-bottom:14px}
+  .legal h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.25rem,2.4vw,1.6rem);letter-spacing:-.015em;line-height:1.2;color:var(--ink);margin:42px 0 14px;padding-top:26px;border-top:1px solid var(--line)}
+  .legal h2:first-of-type{border-top:none;padding-top:0;margin-top:24px}
+  .legal p{color:var(--muted);font-size:1rem;margin-bottom:16px}
+  .legal p strong{color:var(--ink);font-weight:600}
+  .legal ul{list-style:none;margin:0 0 16px;padding:0}
+  .legal li{position:relative;color:var(--muted);font-size:1rem;padding-left:22px;margin-bottom:11px}
+  .legal li::before{content:"";position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:2px;background:linear-gradient(150deg,var(--ember-2),var(--ember))}
+  .legal li strong{color:var(--ink);font-weight:600}
+  .legal a{color:var(--ember-2);text-decoration:none;border-bottom:1px solid rgba(255,179,71,.3);transition:.2s}
+  .legal a:hover{border-bottom-color:var(--ember-2)}
+  .contact-card{margin-top:14px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:14px;padding:24px 26px}
+  .contact-card p{margin:0}
+  .contact-card .name{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.1rem;color:var(--ink);margin-bottom:4px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
+  footer .brand{font-size:16px}
+  footer .foot-links{display:flex;align-items:center;gap:18px}
+  footer .foot-links a{color:var(--muted-2);transition:.2s}
+  footer .foot-links a:hover{color:var(--ember-2)}
+
+  /* MODAL */
+  button.modal-close{cursor:pointer}
+  .modal-overlay{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,8,10,.78);backdrop-filter:blur(8px);opacity:0;transition:opacity .22s ease}
+  .modal-overlay.open{display:flex;opacity:1}
+  .modal{width:100%;max-width:540px;max-height:92vh;overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px 32px;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 60px var(--glow);transform:translateY(14px);transition:transform .22s cubic-bezier(.16,.84,.44,1)}
+  .modal-overlay.open .modal{transform:none}
+  .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:18px;line-height:1;transition:.2s}
+  .modal-close:hover{border-color:var(--ember);color:var(--ember-2)}
+  .modal h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1.12;margin:10px 0 8px}
+  .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+  .field label .opt{color:var(--muted-2);text-transform:none;letter-spacing:0}
+  .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:15px;padding:11px 13px;transition:.18s;resize:vertical}
+  .field textarea{min-height:62px;line-height:1.5}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px var(--glow)}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .btn{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;text-decoration:none;color:#1a1206;font-weight:500;background:linear-gradient(120deg,var(--ember-2),var(--ember));padding:15px 30px;border-radius:10px;transition:.22s;box-shadow:0 0 28px var(--glow);border:none;cursor:pointer}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 38px var(--glow)}
+  .modal .btn{width:100%;text-align:center;margin-top:8px}
+  .modal .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .modal .consent{font-size:12px;color:var(--muted-2);text-align:center;margin-top:14px;line-height:1.5}
+  .modal .consent a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+  .modal .consent a:hover{color:var(--ember-2)}
+  .form-msg{font-size:13.5px;margin-top:14px;display:none}
+  .form-msg.err{display:block;color:#ff8c6b}
+  .form-success{text-align:center;padding:18px 4px}
+  .form-success .check{width:54px;height:54px;margin:0 auto 18px;border-radius:50%;background:linear-gradient(120deg,var(--ember-2),var(--ember));display:flex;align-items:center;justify-content:center;color:#1a1206;font-size:26px;box-shadow:0 0 28px var(--glow)}
+  .form-success h3{margin-bottom:8px}
+  .form-success p{color:var(--muted);font-size:.95rem}
+
+  @media(max-width:760px){
+    header{padding:64px 0 36px}
+    .nav-links{display:none}
+    .hamburger{display:block}
+    .mobile-menu{display:block}
+    footer .wrap{justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="nav-links">
+      <a href="/how-we-build/" class="link">How We Build</a>
+      <a href="/#about" class="link">About</a>
+      <a href="/#packages" class="link">Packages</a>
+      <a href="/blog/" class="link">Insights</a>
+      <a href="#contact" class="cta" onclick="openContact();return false;">Start a Blueprint</a>
+    </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/how-we-build/" onclick="closeMenu()">How We Build</a>
+  <a href="/#about" onclick="closeMenu()">About</a>
+  <a href="/#packages" onclick="closeMenu()">Packages</a>
+  <a href="/blog/" onclick="closeMenu()">Insights</a>
+  <a href="#contact" class="mcta" onclick="closeMenu();openContact();return false;">Start a Blueprint</a>
+</div>
+
+<header>
+  <div class="wrap hero">
+    <span class="kicker">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="eff">Effective date: June 8, 2026</p>
+  </div>
+</header>
+
+<section class="legal">
+  <div class="wrap">
+    <p class="intro">This Privacy Policy explains how Emberforge Works ("Emberforge Works," "we," "us," or "our") collects, uses, and shares information when you visit <strong>emberforgeworks.com</strong> (the "Site") or contact us through it. By using the Site, you agree to the practices described here.</p>
+
+    <h2>1. Information we collect</h2>
+    <p><strong>Information you provide to us.</strong> When you submit our contact form, we collect the information you choose to share — your name, email address, optional phone number, and the details you provide about the problem you're trying to solve, what you've tried, and your timeline. We only collect this information when you choose to send it to us.</p>
+    <p><strong>Information collected automatically.</strong> When you visit the Site, certain information is collected automatically through analytics tools, including pages viewed, time spent on the Site, the website or source that referred you, and general details about your device and browser (such as device type, operating system, and approximate location derived from your IP address). This information is collected in aggregate to help us understand how the Site is used.</p>
+
+    <h2>2. How we use information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Respond to your inquiries and communicate with you about your project or potential engagement;</li>
+      <li>Provide, operate, and improve the Site and our services;</li>
+      <li>Understand how visitors use the Site so we can make it better; and</li>
+      <li>Comply with legal obligations and protect our rights.</li>
+    </ul>
+    <p>We do not sell your personal information, and we do not use it to serve advertising.</p>
+
+    <h2>3. Cookies and analytics</h2>
+    <p>We use <strong>Google Analytics</strong>, a web analytics service provided by Google, to understand Site usage. Google Analytics uses cookies and similar technologies to collect and analyze information about how visitors interact with the Site. This information is processed in a way that does not directly identify you.</p>
+    <p>You can control or disable cookies through your browser settings, and you can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>. Disabling cookies may affect how parts of the Site function.</p>
+
+    <h2>4. How we share information</h2>
+    <p>We do not sell or rent your personal information. We share information only in the following limited circumstances:</p>
+    <ul>
+      <li><strong>Service providers.</strong> We use trusted third parties to operate our Site and business, including website hosting, email delivery, and analytics. These providers process information only on our behalf and only as needed to provide their services. They include providers such as our hosting platform, our email delivery provider, and Google Analytics.</li>
+      <li><strong>Legal requirements.</strong> We may disclose information if required to do so by law, or if we believe in good faith that disclosure is necessary to comply with a legal obligation, protect our rights, or protect the safety of others.</li>
+      <li><strong>Business transfers.</strong> If Emberforge Works is involved in a merger, acquisition, or sale of assets, information may be transferred as part of that transaction.</li>
+    </ul>
+
+    <h2>5. Data retention</h2>
+    <p>We retain the information you submit through the contact form for as long as needed to respond to your inquiry and for our legitimate business purposes, after which it may be deleted. Analytics data is retained in accordance with our analytics provider's standard retention settings.</p>
+
+    <h2>6. Your choices and rights</h2>
+    <p>You may request to access, correct, or delete the personal information you have provided to us by contacting us at the email address below. Depending on where you live, you may have additional rights under applicable privacy laws regarding your personal information. We will respond to such requests as required by law.</p>
+    <p>You can also limit collection by adjusting your browser's cookie settings or using the analytics opt-out described above.</p>
+
+    <h2>7. Data security</h2>
+    <p>We take reasonable measures to protect the information we collect against unauthorized access, loss, or misuse. However, no method of transmission over the internet or electronic storage is completely secure, and we cannot guarantee absolute security.</p>
+
+    <h2>8. Children's privacy</h2>
+    <p>The Site is not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will take steps to delete it.</p>
+
+    <h2>9. Third-party links</h2>
+    <p>The Site may contain links to third-party websites. We are not responsible for the privacy practices or content of those websites. We encourage you to review the privacy policies of any third-party sites you visit.</p>
+
+    <h2>10. Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective date" at the top of this page. We encourage you to review this policy periodically.</p>
+
+    <h2>11. Contact us</h2>
+    <p>If you have questions about this Privacy Policy or how we handle your information, contact us at:</p>
+    <div class="contact-card">
+      <p class="name">Emberforge Works</p>
+      <p>Email: <a href="mailto:erick.quintanilla@hotmail.com">erick.quintanilla@hotmail.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="foot-links">
+      <a href="/privacy/">Privacy Policy</a>
+      <span>Custom operational software · © 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL (same component as the homepage) -->
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" onclick="closeContact()" aria-label="Close">&times;</button>
+    <div id="formWrap">
+      <span class="kicker">Start a Blueprint</span>
+      <h3 id="cmTitle">Tell us what you're trying to solve.</h3>
+      <p class="modal-sub">A few details and we'll be in touch. The more you share, the sharper our first conversation.</p>
+      <div class="field"><label for="cName">Name</label><input id="cName" type="text" autocomplete="name" placeholder="Your name"></div>
+      <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" placeholder="you@company.com"></div>
+      <div class="field"><label for="cPhone">Phone <span class="opt">(optional)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"></div>
+      <div class="field"><label for="cProblem">What's the biggest problem you're trying to solve?</label><textarea id="cProblem" placeholder="The thing that's costing you time or money right now."></textarea></div>
+      <div class="field"><label for="cTried">What have you tried so far? <span class="opt">(optional)</span></label><textarea id="cTried" placeholder="Spreadsheets, off-the-shelf tools, internal builds, nothing yet…"></textarea></div>
+      <div class="field"><label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label><textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Send inquiry</button>
+      <p class="consent">By submitting, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="check">&#10003;</div>
+      <h3>Got it — thanks.</h3>
+      <p>Your inquiry is on its way. We'll reply to the email you provided, usually within a day.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // mobile menu
+  function toggleMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    const open=m.classList.toggle('open');
+    h.classList.toggle('active', open);
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    m.classList.remove('open'); h.classList.remove('active'); h.setAttribute('aria-expanded','false');
+  }
+
+  // contact modal (identical behavior to homepage)
+  const cm = document.getElementById('contactModal');
+  function openContact(){ cm.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('cName').focus(),120); }
+  function closeContact(){ cm.classList.remove('open'); document.body.style.overflow=''; }
+  cm.addEventListener('click', e=>{ if(e.target===cm) closeContact(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ if(cm.classList.contains('open')) closeContact(); closeMenu(); } });
+
+  async function submitContact(){
+    const msg = document.getElementById('formMsg');
+    const btn = document.getElementById('cSubmit');
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const problem = document.getElementById('cProblem').value.trim();
+    msg.className='form-msg';
+    if(!name || !email){ msg.className='form-msg err'; msg.textContent='Please add your name and email.'; return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.className='form-msg err'; msg.textContent='That email doesn’t look right — mind checking it?'; return; }
+    if(!problem){ msg.className='form-msg err'; msg.textContent='Tell us the biggest problem you’re trying to solve — even a sentence helps.'; document.getElementById('cProblem').focus(); return; }
+    const payload = { name, email, phone: document.getElementById('cPhone').value.trim(), problem, tried: document.getElementById('cTried').value.trim(), why: document.getElementById('cWhy').value.trim(), website: document.getElementById('cWebsite').value.trim() };
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try{
+      const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+      if(!res.ok) throw new Error('bad status');
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('formSuccess').style.display='block';
+    }catch(err){
+      btn.disabled=false; btn.textContent='Send inquiry';
+      msg.className='form-msg err'; msg.innerHTML='Something went wrong sending that — please try again in a moment.';
+    }
+  }
+</script>
+
+</body>
+</html>

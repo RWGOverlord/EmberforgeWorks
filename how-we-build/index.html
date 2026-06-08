@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y73F9LR5TM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y73F9LR5TM');
+</script>
 <title>How We'd Build It — Emberforge Works</title>
 <meta name="description" content="Common small business workflows Emberforge Works can turn into custom software — client portals, job management, internal dashboards, partner portals, pipelines, and reporting tools.">
 <link rel="canonical" href="https://www.emberforgeworks.com/how-we-build/" />
@@ -105,6 +114,12 @@
   footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
   footer .brand{font-size:16px}
+  footer .foot-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  footer .foot-links a{color:var(--muted-2);transition:.2s}
+  footer .foot-links a:hover{color:var(--ember-2)}
+  .modal .consent{font-size:12px;color:var(--muted-2);text-align:center;margin-top:14px;line-height:1.5}
+  .modal .consent a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+  .modal .consent a:hover{color:var(--ember-2)}
 
   /* reveal */
   .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.16,.84,.44,1)}
@@ -304,7 +319,10 @@
 <footer>
   <div class="wrap">
     <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
-    <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+    <div class="foot-links">
+      <a href="/privacy/">Privacy Policy</a>
+      <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+    </div>
   </div>
 </footer>
 
@@ -324,6 +342,7 @@
       <div class="field"><label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label><textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea></div>
       <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
       <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Send inquiry</button>
+      <p class="consent">By submitting, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
       <div class="form-msg" id="formMsg"></div>
     </div>
     <div class="form-success" id="formSuccess" style="display:none">

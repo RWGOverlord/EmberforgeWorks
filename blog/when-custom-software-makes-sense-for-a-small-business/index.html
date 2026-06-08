@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y73F9LR5TM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y73F9LR5TM');
+</script>
 <title>When Custom Software Makes Sense for a Small Business — Emberforge Works</title>
 <meta name="description" content="Not every business needs a custom build — but some do, and waiting too long costs more than the software would have. A decision framework for service businesses." />
 <link rel="canonical" href="https://www.emberforgeworks.com/blog/when-custom-software-makes-sense-for-a-small-business/" />
@@ -145,6 +154,9 @@
   footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
   footer .brand{font-size:16px}
+  footer .foot-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  footer .foot-links a{color:var(--muted-2);transition:.2s}
+  footer .foot-links a:hover{color:var(--ember-2)}
 </style>
 </head>
 <body>
@@ -286,7 +298,10 @@
 <footer>
   <div class="wrap">
     <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
-    <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+    <div class="foot-links">
+      <a href="/privacy/">Privacy Policy</a>
+      <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+    </div>
   </div>
 </footer>
 
