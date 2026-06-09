@@ -1,0 +1,14 @@
+{
+  "name": "emberforgeworks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Emberforge Works marketing site",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0"
+  }
+}
