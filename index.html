@@ -195,7 +195,7 @@
   /* PACKAGES */
   .lead-note{color:var(--muted);font-size:1.05rem;max-width:680px;margin-bottom:40px}
   .lead-note b{color:var(--ink);font-weight:600}
-  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+  .pkg-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:stretch}
   .pkg{
     background:linear-gradient(180deg,var(--panel),var(--bg-2));
     border:1px solid var(--line);border-radius:14px;padding:28px 22px;
@@ -209,8 +209,8 @@
     background:linear-gradient(120deg,var(--ember-2),var(--ember));color:#1a1206;font-weight:600;
     padding:4px 12px;border-radius:999px;white-space:nowrap;
   }
-  .pkg .pname{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.18rem;letter-spacing:-.01em}
-  .pkg .ptag{color:var(--muted-2);font-size:.84rem;margin:3px 0 16px;min-height:34px}
+  .pkg .pname{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.18rem;letter-spacing:-.01em;min-height:2.5em}
+  .pkg .ptag{color:var(--muted-2);font-size:.84rem;margin:3px 0 16px;min-height:52px}
   .pkg .price-lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
   .pkg .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.95rem;letter-spacing:-.02em;line-height:1;margin:2px 0 4px}
   .pkg .price .ember{background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -303,6 +303,7 @@
   .form-success h3{margin-bottom:8px}
   .form-success p{color:var(--muted);font-size:.95rem}
 
+  @media(max-width:1120px){ .pkg-grid{grid-template-columns:repeat(3,1fr)} }
   @media(max-width:980px){ .pkg-grid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:760px){
     .grid{grid-template-columns:1fr}
@@ -481,7 +482,7 @@
       <span class="kicker">How we work together</span>
       <h2>Every project starts with a Blueprint.</h2>
     </div>
-    <p class="lead-note reveal">Before we quote a build, we map your process and define exactly what gets built. The <b>Blueprint</b> is a paid engagement that ends with a fixed scope, a recommended architecture, and a firm price — and the full fee credits toward your build if you move forward. No guesswork, no surprise invoices. <b>You own the Blueprint outright</b> — a build-ready spec you can execute with us, or hand to your own developers.</p>
+    <p class="lead-note reveal">Before we quote a build, we map your process and define exactly what gets built. The <b>Blueprint</b> is a paid engagement that ends with a fixed scope, a recommended architecture, and a firm price — and the full fee credits toward your build if you move forward. No guesswork, no surprise invoices. <b>You own the Blueprint outright</b> — a build-ready spec you can execute with us, or hand to your own developers. Already have a system that's breaking down? The <b>System Assessment</b> is the same idea, applied to what you've already got — a hands-on audit that ends with a clear fix-or-rebuild recommendation.</p>
     <div class="pkg-grid">
 
       <div class="pkg reveal">
@@ -495,6 +496,20 @@
           <li>Data model &amp; recommended architecture</li>
           <li>Feature scope &amp; functional requirements</li>
           <li>Fixed-price build quote</li>
+        </ul>
+      </div>
+
+      <div class="pkg reveal">
+        <div class="pname">System Assessment</div>
+        <div class="ptag">Already have a system? Let's find out what you're working with.</div>
+        <span class="price-lbl">Flat</span>
+        <div class="price">$2,500</div>
+        <div class="credit">Credited toward stabilization work</div>
+        <ul>
+          <li>Hands-on technical audit of code, data &amp; workflows</li>
+          <li>Health, security &amp; access review</li>
+          <li>Fix-or-rebuild recommendation</li>
+          <li>Priced stabilization plan</li>
         </ul>
       </div>
 
