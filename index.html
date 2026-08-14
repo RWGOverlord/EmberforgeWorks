@@ -176,17 +176,85 @@
   .about-lead{color:var(--muted);font-size:1.05rem;max-width:720px;margin-bottom:40px}
 
   /* PROOF */
-  .proof-card{
-    background:linear-gradient(135deg,var(--panel),var(--bg-2));
-    border:1px solid var(--line);border-radius:18px;padding:48px 44px;position:relative;overflow:hidden;
+  .proof-lead{color:var(--muted);font-size:1.05rem;max-width:720px;margin-bottom:40px}
+  .proof-lead b{color:var(--ink);font-weight:600}
+  .build{
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;
   }
-  .proof-card::after{
+  .build::after{
     content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;
     background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none;
   }
-  .proof-card h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.02em;margin:14px 0 18px;max-width:620px}
-  .proof-card p{color:var(--muted);max-width:680px;font-size:1.03rem}
-  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;position:relative}
+  .build-head{
+    padding:36px 38px 30px;border-bottom:1px solid var(--line);position:relative;
+    display:grid;grid-template-columns:1fr auto;gap:26px;align-items:start;
+  }
+  .status{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ember-2);margin-bottom:14px;
+  }
+  .status i{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px var(--glow)}
+  .build-name{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1.1}
+  .build-kind{color:var(--muted);font-size:1rem;margin-top:5px}
+  .build-link{
+    display:inline-block;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    color:var(--ember-2);text-decoration:none;border-bottom:1px solid rgba(255,122,24,.4);padding-bottom:2px;transition:.2s;
+  }
+  .build-link:hover{color:var(--ember);border-color:var(--ember)}
+  .stamp{
+    border:1px solid var(--line);border-radius:10px;background:var(--glow);
+    padding:12px 16px;text-align:right;white-space:nowrap;
+  }
+  .stamp span{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted-2);margin-bottom:3px;
+  }
+  .stamp b{font-family:"Bricolage Grotesque";font-weight:700;font-size:.95rem;color:var(--ember-2)}
+
+  .beforeafter{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);position:relative}
+  .ba{padding:26px 38px}
+  .ba + .ba{border-left:1px solid var(--line)}
+  .ba h4{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--muted-2);margin-bottom:10px;
+  }
+  .ba.after h4{color:var(--ember-2)}
+  .ba p{color:var(--muted);font-size:.95rem;line-height:1.6}
+  .ba.after p{color:var(--ink)}
+
+  /* screenshot tabs */
+  .shots{padding:30px 38px 34px;position:relative}
+  .shot-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+  .shot-tab{
+    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);
+    background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:999px;
+    padding:7px 15px;cursor:pointer;transition:.2s;white-space:nowrap;
+  }
+  .shot-tab:hover{color:var(--ink);border-color:#33373f}
+  .shot-tab[aria-selected="true"]{color:var(--ember-2);border-color:var(--ember);background:var(--glow)}
+  .shot-panel[hidden]{display:none}
+  .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg-2)}
+  .frame-bar{
+    display:flex;align-items:center;gap:8px;padding:9px 13px;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);
+  }
+  .frame-bar i{width:8px;height:8px;border-radius:50%;background:#3a4048;flex:none}
+  .frame-url{
+    flex:1;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted-2);
+    background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:3px 10px;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .stage{aspect-ratio:1800/906;background:#0f1114;display:block}
+  .stage img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left}
+  .stage.phone{display:grid;place-items:center;overflow:hidden;background:radial-gradient(circle at 50% 40%,rgba(255,122,24,.07),transparent 60%),#0f1114}
+  .stage.phone img{
+    width:auto;height:96%;min-height:0;object-fit:contain;border-radius:14px;
+    border:1px solid rgba(255,255,255,.1);box-shadow:0 18px 50px rgba(0,0,0,.55);
+  }
+  .shot-cap{color:var(--muted);font-size:.9rem;margin-top:14px;max-width:74ch}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0 38px 34px;position:relative}
   .chip{
     font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);
     border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.02);
@@ -386,6 +454,10 @@
   .form-success p{color:var(--muted);font-size:.95rem}
 
   @media(max-width:980px){
+    .build-head{grid-template-columns:1fr}
+    .stamp{justify-self:start;text-align:left}
+    .beforeafter{grid-template-columns:1fr}
+    .ba + .ba{border-left:0;border-top:1px solid var(--line)}
     .pkg-head,.pkg ul,.bestwhen{padding-left:18px;padding-right:18px}
     .pkg-cta{margin-left:18px;margin-right:18px}
     .blueprint{grid-template-columns:1fr}
@@ -402,7 +474,18 @@
     .flow-step{padding-right:0}
     .flow-step:not(:last-child)::after{display:none}
     header{padding:80px 0 64px}
-    .proof-card{padding:34px 26px}
+    .build-head{padding:28px 22px 24px}
+    .ba{padding:22px}
+    .shots{padding:24px 22px 28px}
+    .chips{padding:0 22px 28px}
+    .build-name{font-size:1.6rem}
+    .shot-tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 -22px 16px;padding:0 22px 4px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .shot-tabs::-webkit-scrollbar{display:none}
+    /* keep the UI legible on small screens: swipe the shot instead of shrinking it */
+    .stage{aspect-ratio:auto;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .stage img{width:720px;max-width:none;height:auto;object-fit:contain}
+    .stage.phone{overflow-x:hidden;padding:18px 0}
+    .stage.phone img{width:62%;max-width:220px;height:auto}
     .nav-links{display:none}
     .hamburger{display:block}
     .mobile-menu{display:block}
@@ -565,18 +648,80 @@
 
 <section id="proof">
   <div class="wrap">
-    <div class="proof-card reveal">
-      <span class="kicker">Proof of work</span>
-      <h3>A complete practice-management platform — designed, built, and live in production.</h3>
-      <p>For a professional services practice, we shipped a full operations platform: client records, scheduling and calendar, document storage, token-secured intake forms, automated PDF generation, and role-based authentication — deployed to production on the client's own domain. Architected, built, and launched end to end.</p>
-      <div class="chips">
-        <span class="chip">Full-stack build</span>
-        <span class="chip">Production-deployed</span>
-        <span class="chip">Custom domain</span>
-        <span class="chip">Role-based auth</span>
-        <span class="chip">Automated documents</span>
-        <span class="chip">Secure client data</span>
+    <div class="sec-head reveal">
+      <span class="kicker">What we ship</span>
+      <h2>We don't just build software for clients. We run our own.</h2>
+    </div>
+    <p class="proof-lead reveal">The fastest way to judge a builder is to look at something they own, maintain, and put their name on. <b>This one is live, paid for by us, and used by real practices every day.</b></p>
+
+    <div class="build reveal">
+
+      <div class="build-head">
+        <div>
+          <p class="status"><i></i> Live in production</p>
+          <h3 class="build-name">DoulaFlow</h3>
+          <p class="build-kind">Practice management software for birth workers</p>
+          <a class="build-link" href="https://www.mydoulaflow.com" target="_blank" rel="noopener">mydoulaflow.com &#8599;</a>
+        </div>
+        <div class="stamp">
+          <span>Scope equivalent</span>
+          <b>Operations Platform</b>
+        </div>
       </div>
+
+      <div class="beforeafter">
+        <div class="ba">
+          <h4>Before</h4>
+          <p>A practice ran across a paper binder, a text thread, and a shared calendar. Contracts were printed, signed by hand, and scanned back. Nobody could answer "did she sign yet" without digging through three places.</p>
+        </div>
+        <div class="ba after">
+          <h4>After</h4>
+          <p>Intake through signed contract is now one link. Every client's stage, documents, invoices, and appointments sit in one record, and each family gets a private portal she can open on her phone.</p>
+        </div>
+      </div>
+
+      <div class="shots">
+        <div class="shot-tabs" role="tablist" aria-label="DoulaFlow screenshots">
+          <button type="button" class="shot-tab" role="tab" id="tab-clients" aria-controls="panel-clients" aria-selected="true">Clients pipeline</button>
+          <button type="button" class="shot-tab" role="tab" id="tab-portal" aria-controls="panel-portal" aria-selected="false" tabindex="-1">Client portal</button>
+          <button type="button" class="shot-tab" role="tab" id="tab-invoice" aria-controls="panel-invoice" aria-selected="false" tabindex="-1">Invoicing &amp; payments</button>
+        </div>
+
+        <div class="shot-panel" id="panel-clients" role="tabpanel" aria-labelledby="tab-clients" tabindex="0">
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">app.mydoulaflow.com/clients</span></div>
+            <div class="stage"><img src="/images/work/doulaflow-clients.png" width="1800" height="906" alt="The DoulaFlow clients list, showing each client's due date, next appointment, services, and stage." decoding="async"></div>
+          </div>
+          <p class="shot-cap">Every client's stage, due date, and next appointment on one row — the whole caseload in a single view, instead of a binder and a text thread.</p>
+        </div>
+
+        <div class="shot-panel" id="panel-portal" role="tabpanel" aria-labelledby="tab-portal" tabindex="0" hidden>
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">portal.mydoulaflow.com</span></div>
+            <div class="stage phone"><img src="/images/work/doulaflow-portal.png" width="497" height="900" alt="A client's private DoulaFlow portal on a phone, showing week-by-week pregnancy progress." loading="lazy" decoding="async"></div>
+          </div>
+          <p class="shot-cap">Each client gets her own secure portal on her phone — her appointments, her documents, and week-by-week progress. Access is enforced per client at the data layer.</p>
+        </div>
+
+        <div class="shot-panel" id="panel-invoice" role="tabpanel" aria-labelledby="tab-invoice" tabindex="0" hidden>
+          <div class="frame">
+            <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">portal.mydoulaflow.com/invoices/inv-001</span></div>
+            <div class="stage"><img src="/images/work/doulaflow-invoice.png" width="1800" height="906" alt="An invoice in the DoulaFlow client portal with deposit, balance, payment history, and a pay-online button." loading="lazy" decoding="async"></div>
+          </div>
+          <p class="shot-cap">Invoices are generated from the client's package, tracked against deposits and payments, and paid online — the practice gets paid without chasing anyone.</p>
+        </div>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Client records</span>
+        <span class="chip">Scheduling &amp; appointments</span>
+        <span class="chip">Secure documents</span>
+        <span class="chip">E-signature</span>
+        <span class="chip">Invoicing &amp; payments</span>
+        <span class="chip">Client portal</span>
+        <span class="chip">Reporting</span>
+      </div>
+
     </div>
   </div>
 </section>
@@ -800,6 +945,29 @@
     });
   },{threshold:.12});
   document.querySelectorAll(".reveal").forEach((el,i)=>{ if(el.closest("header")) el.dataset.d = i*110; io.observe(el); });
+
+  /* screenshot tabs */
+  document.querySelectorAll(".shot-tabs").forEach((list)=>{
+    const tabs = Array.from(list.querySelectorAll(".shot-tab"));
+    const select = (tab, focus)=>{
+      tabs.forEach((t)=>{
+        const on = t === tab;
+        t.setAttribute("aria-selected", on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+      });
+      if(focus) tab.focus();
+    };
+    tabs.forEach((tab, i)=>{
+      tab.addEventListener("click", ()=>select(tab));
+      tab.addEventListener("keydown", (e)=>{
+        const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if(step){ e.preventDefault(); select(tabs[(i + step + tabs.length) % tabs.length], true); }
+        else if(e.key === "Home"){ e.preventDefault(); select(tabs[0], true); }
+        else if(e.key === "End"){ e.preventDefault(); select(tabs[tabs.length-1], true); }
+      });
+    });
+  });
 </script>
 
 <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
