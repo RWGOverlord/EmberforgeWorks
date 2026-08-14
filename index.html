@@ -195,29 +195,111 @@
   /* PACKAGES */
   .lead-note{color:var(--muted);font-size:1.05rem;max-width:680px;margin-bottom:40px}
   .lead-note b{color:var(--ink);font-weight:600}
-  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch}
+
+  /* blueprint block */
+  .blueprint{
+    background:linear-gradient(180deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 320px;
+  }
+  .bp-body{padding:34px 32px}
+  .bp-step{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember-2)}
+  .bp-title{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.5rem;letter-spacing:-.02em;margin:10px 0 10px}
+  .bp-copy{color:var(--muted);font-size:.95rem;max-width:52ch;margin-bottom:22px}
+  .bp-copy b{color:var(--ink);font-weight:600}
+  .bp-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 26px}
+  .bp-list li,.pkg-li{font-size:.88rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.45}
+  .bp-list li::before,.pkg-li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ember);opacity:.7}
+  .bp-price{
+    border-left:1px solid var(--line);background:rgba(255,122,24,.045);
+    padding:34px 30px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .price-lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
+  .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:2.4rem;letter-spacing:-.02em;line-height:1;margin:4px 0 8px}
+  .price .ember{background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .price .per{font-family:"IBM Plex Sans",sans-serif;font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0}
+  .credit{font-size:.82rem;color:var(--ember-2);line-height:1.4;margin-bottom:20px}
+  .bp-price .btn{text-align:center;font-size:13px;padding:13px 20px}
+
+  /* ladder */
+  .ladder-head{margin:56px 0 26px;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+  .ladder-head h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.32rem;letter-spacing:-.01em}
+  .ladder-head p{color:var(--muted);font-size:.95rem}
+
+  .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
   .pkg{
     background:linear-gradient(180deg,var(--panel),var(--bg-2));
-    border:1px solid var(--line);border-radius:14px;padding:28px 22px;
+    border:1px solid var(--line);border-radius:14px;padding:0 0 26px;
     display:flex;flex-direction:column;position:relative;transition:.25s;
   }
   .pkg:hover{transform:translateY(-3px);border-color:#33373f}
   .pkg.feat{border-color:var(--ember);box-shadow:0 0 34px var(--glow)}
+  .pkg.feat:hover{border-color:var(--ember)}
+  /* scale rail — fill width encodes build size across the ladder */
+  .rail{height:3px;background:rgba(236,235,230,.07);position:relative;overflow:hidden;border-radius:13px 13px 0 0}
+  .rail span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--ember),var(--ember-2))}
+  .rail-1 span{width:34%}
+  .rail-2 span{width:67%}
+  .rail-3 span{width:100%}
   .pkg .badge{
-    position:absolute;top:-11px;left:50%;transform:translateX(-50%);
-    font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+    position:absolute;top:-10px;right:16px;
+    font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
     background:linear-gradient(120deg,var(--ember-2),var(--ember));color:#1a1206;font-weight:600;
-    padding:4px 12px;border-radius:999px;white-space:nowrap;
+    padding:4px 10px;border-radius:999px;white-space:nowrap;
   }
+  .pkg-head{padding:26px 22px 0}
   .pkg .pname{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.18rem;letter-spacing:-.01em}
-  .pkg .ptag{color:var(--muted-2);font-size:.84rem;margin:3px 0 16px;min-height:34px}
-  .pkg .price-lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
-  .pkg .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.95rem;letter-spacing:-.02em;line-height:1;margin:2px 0 4px}
-  .pkg .price .ember{background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .pkg .credit{font-size:.8rem;color:var(--ember-2);min-height:18px;margin-bottom:18px}
-  .pkg ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:6px}
+  .pkg .ptag{color:var(--muted-2);font-size:.84rem;margin:3px 0 18px;min-height:38px}
+  .bestwhen{
+    margin-top:22px;padding:14px 22px;font-size:.86rem;line-height:1.5;color:var(--ink);
+    background:rgba(236,235,230,.03);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .pkg.feat .bestwhen{background:var(--glow);border-color:rgba(255,122,24,.28)}
+  .bestwhen b{
+    display:block;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:500;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ember-2);margin-bottom:4px;
+  }
+  .pkg ul{list-style:none;display:flex;flex-direction:column;gap:9px;padding:22px 22px 0;flex:1}
   .pkg li{font-size:.88rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.45}
   .pkg li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ember);opacity:.7}
+  .pkg li.inherit{color:var(--ink);font-weight:500}
+  .pkg li.inherit::before{background:var(--muted-2);opacity:1}
+  .pkg-cta{margin:24px 22px 0}
+  .btn-ghost{
+    display:block;text-align:center;text-decoration:none;
+    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.03em;
+    color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 16px;
+    background:transparent;width:100%;cursor:pointer;transition:.2s;
+  }
+  .btn-ghost:hover{border-color:var(--ember);color:var(--ember-2)}
+  .pkg.feat .btn-ghost{border-color:rgba(255,122,24,.45)}
+
+  /* custom platform */
+  .custom{
+    margin-top:16px;border:1px dashed rgba(255,122,24,.3);border-radius:14px;
+    padding:22px 26px;background:rgba(255,122,24,.03);
+    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  }
+  .custom h4{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.05rem;margin-bottom:4px}
+  .custom p{color:var(--muted);font-size:.88rem;max-width:70ch}
+  .custom .custom-price{
+    font-family:"Bricolage Grotesque";font-weight:800;font-size:1.35rem;letter-spacing:-.02em;
+    white-space:nowrap;
+    background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  /* care plan */
+  .care{
+    margin-top:48px;padding-top:34px;border-top:1px solid var(--line);
+    display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;
+  }
+  .care h4{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.18rem;margin-bottom:6px}
+  .care>div>p{color:var(--muted);font-size:.95rem;max-width:56ch;margin-bottom:14px}
+  .care-items{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.86rem;color:var(--muted)}
+  .care-items li{position:relative;padding-left:16px}
+  .care-items li::before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:50%;background:var(--ember);opacity:.7}
+  .care-price{text-align:right}
+  .care-price .price{font-size:1.95rem}
   .divider{height:1px;background:var(--line);margin:16px 0}
 
   /* CTA */
@@ -303,7 +385,14 @@
   .form-success h3{margin-bottom:8px}
   .form-success p{color:var(--muted);font-size:.95rem}
 
-  @media(max-width:980px){ .pkg-grid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:980px){
+    .pkg-head,.pkg ul,.bestwhen{padding-left:18px;padding-right:18px}
+    .pkg-cta{margin-left:18px;margin-right:18px}
+    .blueprint{grid-template-columns:1fr}
+    .bp-price{border-left:0;border-top:1px solid var(--line)}
+    .care{grid-template-columns:1fr;gap:22px}
+    .care-price{text-align:left}
+  }
   @media(max-width:760px){
     .grid{grid-template-columns:1fr}
     .approach .wrap{grid-template-columns:1fr;gap:40px}
@@ -318,7 +407,24 @@
     .hamburger{display:block}
     .mobile-menu{display:block}
   }
-  @media(max-width:560px){ .pkg-grid{grid-template-columns:1fr} }
+  @media(max-width:820px){
+    .pkg-grid{grid-template-columns:1fr;gap:26px}
+    .pkg .ptag{min-height:0}
+    .pkg-head,.pkg ul,.bestwhen{padding-left:22px;padding-right:22px}
+    .pkg-cta{margin-left:22px;margin-right:22px}
+  }
+  @media(max-width:560px){
+    .bp-body{padding:28px 22px}
+    .bp-price{padding:26px 22px}
+    .bp-list{grid-template-columns:1fr}
+    .bp-title{font-size:1.35rem}
+    .price{font-size:2.1rem}
+    .pkg-head,.pkg ul,.bestwhen{padding-left:20px;padding-right:20px}
+    .pkg-cta{margin-left:20px;margin-right:20px}
+    .custom{padding:20px;gap:14px}
+    .custom .custom-price{font-size:1.25rem}
+    .ladder-head{margin-top:44px;gap:6px}
+  }
 </style>
 </head>
 <body>
@@ -481,66 +587,127 @@
       <span class="kicker">How we work together</span>
       <h2>Every project starts with a Blueprint.</h2>
     </div>
-    <p class="lead-note reveal">Before we quote a build, we map your process and define exactly what gets built. The <b>Blueprint</b> is a paid engagement that ends with a fixed scope, a recommended architecture, and a firm price — and the full fee credits toward your build if you move forward. No guesswork, no surprise invoices. <b>You own the Blueprint outright</b> — a build-ready spec you can execute with us, or hand to your own developers.</p>
-    <div class="pkg-grid">
+    <p class="lead-note reveal">Before we quote a build, we map your process and define exactly what gets built. <b>You own the Blueprint outright</b>, so it is a build-ready spec you can execute with us or hand to your own developers.</p>
 
-      <div class="pkg reveal">
-        <div class="pname">Blueprint</div>
-        <div class="ptag">Start here. The plan before the build.</div>
-        <span class="price-lbl">Flat</span>
-        <div class="price">$1,000</div>
-        <div class="credit">Credited toward your build</div>
-        <ul>
+    <div class="blueprint reveal">
+      <div class="bp-body">
+        <span class="bp-step">Step one</span>
+        <h3 class="bp-title">Blueprint</h3>
+        <p class="bp-copy">A paid engagement that ends with a fixed scope, a recommended architecture, and a firm price. <b>No guesswork, no surprise invoices.</b></p>
+        <ul class="bp-list">
           <li>Process &amp; workflow mapping</li>
           <li>Data model &amp; recommended architecture</li>
           <li>Feature scope &amp; functional requirements</li>
           <li>Fixed-price build quote</li>
         </ul>
       </div>
+      <div class="bp-price">
+        <span class="price-lbl">Flat</span>
+        <div class="price"><span class="ember">$1,000</span></div>
+        <div class="credit">Credited in full toward your build</div>
+        <button type="button" class="btn" onclick="openContact()">Start a Blueprint</button>
+      </div>
+    </div>
 
-      <div class="pkg feat reveal">
-        <span class="badge">Most popular</span>
-        <div class="pname">Launch</div>
-        <div class="ptag">One focused application, live on your domain.</div>
-        <span class="price-lbl">Starts at</span>
-        <div class="price"><span class="ember">$8,000</span></div>
-        <div class="credit">&nbsp;</div>
+    <div class="ladder-head reveal">
+      <h3>Then we build.</h3>
+      <p>One question sorts most projects: who logs in?</p>
+    </div>
+
+    <div class="pkg-grid">
+
+      <div class="pkg reveal">
+        <div class="rail rail-1"><span></span></div>
+        <div class="pkg-head">
+          <div class="pname">Launch</div>
+          <div class="ptag">One focused application, live on your domain.</div>
+          <span class="price-lbl">Starts at</span>
+          <div class="price">$8,000</div>
+        </div>
+        <div class="bestwhen">
+          <b>Best when</b>
+          Your team needs the system. Your clients do not log in.
+        </div>
         <ul>
-          <li>Secure authentication &amp; user roles</li>
-          <li>Custom dashboard &amp; core workflow</li>
-          <li>Deployed &amp; configured end to end</li>
+          <li>One core workflow, built around how your team works</li>
+          <li>Secure login with user roles and permissions</li>
+          <li>Custom dashboard and reporting</li>
+          <li>Deployed end to end on your own domain</li>
           <li>90 days of post-launch support</li>
         </ul>
+        <div class="pkg-cta"><button type="button" class="btn-ghost" onclick="openContact()">Start a Blueprint</button></div>
       </div>
 
-      <div class="pkg reveal">
-        <div class="pname">Operations Platform</div>
-        <div class="ptag">Multi-feature systems for growing businesses.</div>
-        <span class="price-lbl">Starts at</span>
-        <div class="price">$25,000</div>
-        <div class="credit">&nbsp;</div>
+      <div class="pkg feat reveal">
+        <div class="rail rail-2"><span></span></div>
+        <span class="badge">Where most projects land</span>
+        <div class="pkg-head">
+          <div class="pname">Workflow</div>
+          <div class="ptag">Your whole process, running end to end.</div>
+          <span class="price-lbl">Starts at</span>
+          <div class="price"><span class="ember">$15,000</span></div>
+        </div>
+        <div class="bestwhen">
+          <b>Best when</b>
+          The process reaches outside your team, but your clients still do not need accounts.
+        </div>
         <ul>
-          <li>Everything in Launch</li>
-          <li>Multiple integrated workflows</li>
-          <li>API &amp; third-party integrations</li>
-          <li>Automation &amp; reporting</li>
+          <li class="inherit">Everything in Launch</li>
+          <li>Multiple connected workflows in one system</li>
+          <li>Automated documents, contracts, and e-signature</li>
+          <li>Clients and vendors respond through secure links, with no logins to manage</li>
+          <li>Automated reminders and follow-ups so nothing stalls</li>
         </ul>
+        <div class="pkg-cta"><button type="button" class="btn-ghost" onclick="openContact()">Start a Blueprint</button></div>
       </div>
 
       <div class="pkg reveal">
-        <div class="pname">Care Plan</div>
-        <div class="ptag">Ongoing support after you launch.</div>
-        <span class="price-lbl">From</span>
-        <div class="price">$150<span style="font-size:1rem;font-weight:600;color:var(--muted)">/mo</span></div>
-        <div class="credit">&nbsp;</div>
+        <div class="rail rail-3"><span></span></div>
+        <div class="pkg-head">
+          <div class="pname">Operations Platform</div>
+          <div class="ptag">A system your team and your clients both live in.</div>
+          <span class="price-lbl">Starts at</span>
+          <div class="price">$25,000</div>
+        </div>
+        <div class="bestwhen">
+          <b>Best when</b>
+          Your clients need their own secure login.
+        </div>
         <ul>
+          <li class="inherit">Everything in Workflow</li>
+          <li>Client portal with its own secure login</li>
+          <li>Payments, scheduling, and messaging</li>
+          <li>Third-party API and system integrations</li>
+          <li>Role-based access enforced at the data layer</li>
+        </ul>
+        <div class="pkg-cta"><button type="button" class="btn-ghost" onclick="openContact()">Start a Blueprint</button></div>
+      </div>
+
+    </div>
+
+    <div class="custom reveal">
+      <div>
+        <h4>Custom Platform</h4>
+        <p>Native mobile apps, multi-location architecture, and builds in regulated industries. Scoped individually from the Blueprint.</p>
+      </div>
+      <div class="custom-price">$40,000+</div>
+    </div>
+
+    <div class="care reveal">
+      <div>
+        <h4>Care Plan</h4>
+        <p>Ongoing support after you launch. Month to month, so you stay because it is working — not because you are locked into a contract.</p>
+        <ul class="care-items">
           <li>Managed hosting &amp; uptime</li>
           <li>Priority bug fixes</li>
           <li>Small enhancements</li>
           <li>No long-term contract</li>
         </ul>
       </div>
-
+      <div class="care-price">
+        <span class="price-lbl">From</span>
+        <div class="price">$150<span class="per">/mo</span></div>
+      </div>
     </div>
   </div>
 </section>
