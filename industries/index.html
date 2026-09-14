@@ -12,9 +12,18 @@
 
   gtag('config', 'G-Y73F9LR5TM');
 </script>
-<title>How We'd Build It — Emberforge Works</title>
-<meta name="description" content="Common small business workflows Emberforge Works can turn into custom software — client portals, job management, internal dashboards, partner portals, pipelines, and reporting tools.">
-<link rel="canonical" href="https://www.emberforgeworks.com/how-we-build/" />
+<title>Who We Build For — Emberforge Works</title>
+<meta name="description" content="Custom workflow systems for title and escrow companies, insurance brokerages, property management firms, specialty trade contractors, and used auto dealerships. Built around the software you already run.">
+<link rel="canonical" href="https://www.emberforgeworks.com/industries/" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emberforge Works">
+<meta property="og:url" content="https://www.emberforgeworks.com/industries/">
+<meta property="og:title" content="We build for businesses where the process is the product.">
+<meta property="og:description" content="Title and escrow, insurance brokerages, property management, specialty trades, and used auto dealerships: systems that sit around the software you already run.">
+<meta property="og:image" content="https://www.emberforgeworks.com/images/og-emberforge.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -86,47 +95,52 @@
   .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
 
   /* HERO */
-  header{position:relative;padding:104px 0 70px;overflow:hidden}
+  header{position:relative;padding:104px 0 80px;overflow:hidden}
   header::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(20px);pointer-events:none}
-  .hero{position:relative;max-width:840px}
+  .hero{position:relative;max-width:860px}
   h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.5rem,5.6vw,4.2rem);line-height:1.03;letter-spacing:-.025em;margin:22px 0 24px}
   h1 .ember{color:var(--ember)}
-  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:var(--muted);max-width:640px}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:var(--muted);max-width:660px}
 
   /* SECTION SHELL */
   section{padding:80px 0;border-top:1px solid var(--line)}
-  .sec-head{max-width:680px;margin-bottom:48px}
-  .sec-head h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.1;margin-top:14px}
-  .sec-head h2:first-child{margin-top:0}
+  .sec-head{max-width:680px;margin-bottom:44px}
+  .sec-head h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.1}
+  .sec-head p{color:var(--muted);font-size:1.05rem;margin-top:16px}
 
-  /* INTRO */
-  .intro-copy{max-width:680px;color:var(--muted);font-size:1.06rem;display:flex;flex-direction:column;gap:16px;margin-bottom:34px}
-  .callout{border-left:2px solid var(--ember);background:linear-gradient(90deg,rgba(255,122,24,.07),transparent);padding:24px 28px;border-radius:0 12px 12px 0;max-width:760px}
-  .callout p{font-family:"Bricolage Grotesque";font-weight:600;font-size:clamp(1.15rem,2.1vw,1.55rem);color:var(--ink);letter-spacing:-.01em;line-height:1.28}
+  .lead-2{font-size:1rem;color:var(--muted);max-width:640px;margin-top:14px;padding-left:16px;border-left:2px solid var(--ember)}
+  .jump{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px}
+  .jump a{font-size:14.5px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:2px;transition:.2s}
+  .jump a:hover{color:var(--ember-2);border-color:var(--ember)}
 
-  /* USE CASES */
-  .usecases{display:flex;flex-direction:column;gap:20px}
-  .usecase{scroll-margin-top:92px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:16px;padding:34px 32px;position:relative;overflow:hidden;transition:.25s}
-  .usecase::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--ember);opacity:0;transition:.25s}
-  .usecase:hover{border-color:#33373f;transform:translateY(-3px)}
-  .usecase:hover::before{opacity:1}
-  .uc-head{display:flex;align-items:baseline;gap:15px;margin-bottom:24px}
-  .uc-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ember-2);letter-spacing:.1em}
-  .uc-head h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.5rem;letter-spacing:-.01em}
-  .uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-  .uc-block{margin-bottom:18px}
-  .uc-block:last-child{margin-bottom:0}
-  .uc-label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);margin-bottom:7px}
-  .uc-label.accent{color:var(--ember-2)}
-  .uc-block p{color:var(--muted);font-size:.97rem}
-  .uc-build{border-left:1px solid var(--line);padding-left:36px}
-  .uc-build .uc-block p{color:var(--ink)}
-  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}
-  .chip{color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 13px;background:rgba(255,255,255,.02);font-family:"IBM Plex Sans",sans-serif;font-size:13px}
+  /* INDUSTRY BLOCKS */
+  .ind{scroll-margin-top:68px}
+  .ind-head{max-width:760px;margin-bottom:34px}
+  .ind-head h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.7rem,3vw,2.35rem);letter-spacing:-.02em;line-height:1.12;margin:14px 0 14px}
+  .ind-frame{color:var(--muted);font-size:1.05rem}
+  .ind-link{display:inline-block;margin-top:20px;color:var(--ember-2);border-bottom:1px solid rgba(255,122,24,.4);font-size:15px;transition:.2s}
+  .ind-link:hover{color:var(--ember);border-color:var(--ember)}
+  .ind-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;align-items:start}
+  .pains{list-style:none;border-top:1px solid var(--line)}
+  .pains li{padding:16px 0 16px 22px;border-bottom:1px solid var(--line);color:var(--muted);font-size:.98rem;position:relative}
+  .pains li::before{content:"";position:absolute;left:2px;top:27px;width:8px;height:1px;background:var(--ember)}
+  .ind-answer{border-left:1px solid var(--line);padding-left:44px}
+  .ans{margin-bottom:26px}
+  .ans-label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember-2);margin-bottom:8px}
+  .ans-label.stays{color:var(--muted)}
+  .ans p{color:var(--ink);font-size:.98rem}
+  .ans + .ans p{color:var(--muted)}
+  .lands{padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:22px}
+  .lands .ans-label{color:var(--muted)}
+  .lands .tier{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.2rem;color:var(--ink);margin-bottom:4px}
+  .lands .tier small{display:block;font-family:"IBM Plex Sans",sans-serif;font-size:.88rem;font-weight:500;color:var(--ember-2);margin-top:2px}
+  .lands p{color:var(--muted);font-size:.95rem}
+  .btn-ghost{display:inline-block;text-align:center;color:var(--ink);border:1px solid rgba(255,122,24,.45);border-radius:10px;padding:12px 22px;background:transparent;cursor:pointer;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500}
+  .btn-ghost:hover{border-color:var(--ember);color:var(--ember-2)}
 
   /* CTA */
   .cta-sec{text-align:center;padding:104px 0}
-  .cta-sec h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.025em;max-width:740px;margin:16px auto 22px;line-height:1.06}
+  .cta-sec h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.025em;max-width:760px;margin:0 auto 22px;line-height:1.06}
   .cta-sec .cta-copy{color:var(--muted);max-width:600px;margin:0 auto 30px;font-size:1.05rem}
   .btn{display:inline-block;text-decoration:none;color:#1a1206;background:var(--ember);padding:15px 30px;border-radius:10px;transition:.22s;border:none;cursor:pointer;font-family:"IBM Plex Sans",sans-serif;font-size:15px;font-weight:600}
   .btn:hover{background:var(--ember-2)}
@@ -160,14 +174,14 @@
   .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
   .field{margin-bottom:16px}
   .field label{display:block;color:var(--muted);margin-bottom:7px;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;font-weight:500}
-  .field label .opt{color:var(--muted-2);text-transform:none;letter-spacing:0}
+  .field label .opt{color:var(--muted-2)}
   .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:15px;padding:11px 13px;transition:.18s;resize:vertical}
   .field textarea{min-height:62px;line-height:1.5}
   .field input:focus,.field textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px var(--glow)}
   .field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
   .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
   .modal .btn{width:100%;text-align:center;margin-top:8px}
-  .modal .btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+  .modal .btn:disabled{opacity:.55;cursor:not-allowed}
   .form-msg{font-size:13.5px;margin-top:14px;display:none}
   .form-msg.err{display:block;color:#ff8c6b}
   .form-success{text-align:center;padding:18px 4px}
@@ -175,11 +189,14 @@
   .form-success h3{margin-bottom:8px}
   .form-success p{color:var(--muted);font-size:.95rem}
 
+  @media(max-width:900px){
+    .ind-grid{grid-template-columns:1fr;gap:30px}
+    .ind-answer{border-left:none;padding-left:0}
+  }
   @media(max-width:760px){
-    .uc-grid{grid-template-columns:1fr;gap:26px}
-    .uc-build{border-left:none;padding-left:0;border-top:1px solid var(--line);padding-top:24px}
     section{padding:60px 0}
-    header{padding:72px 0 52px}
+    header{padding:72px 0 56px}
+    .btn-ghost{width:100%}
     .nav-links{display:none}
     .hamburger{display:block}
     .mobile-menu{display:block}
@@ -254,124 +271,175 @@
 
 <header>
   <div class="wrap hero">
-    <span class="kicker">How We'd Build It</span>
-    <h1>Most businesses don't need an app. They need a better way to <span class="ember">run the work they already do.</span></h1>
-    <p class="lead">Common small business workflows we can turn into custom software — and what each one looks like once it's built.</p>
+    <span class="kicker">Who we're for</span>
+    <h1>We build for businesses where <span class="ember">the process is the product.</span></h1>
+    <p class="lead">Every one of these industries runs on a handful of workflows that live in email, spreadsheets, and one veteran's memory. We map the workflow first, then build the system around it.</p>
+    <p class="lead-2">Nothing below replaces the licensed or regulated software you already run. It sits around that software and handles everything that software doesn't.</p>
+    <div class="jump" role="navigation" aria-label="Industries on this page">
+      <a href="#title-escrow">Title &amp; escrow</a>
+      <a href="#insurance-brokerages">Insurance brokerages</a>
+      <a href="#property-management">Property management</a>
+      <a href="#specialty-trades">Specialty trade contractors</a>
+      <a href="#auto-dealers">Used auto dealerships</a>
+    </div>
   </div>
 </header>
 
-<section id="intro">
+<section class="ind" id="title-escrow">
   <div class="wrap">
-    <div class="intro-copy reveal">
-      <p>Most small businesses aren't short on effort. They're buried under spreadsheets, email threads, scattered forms, text messages, duplicate data entry, and manual follow-ups.</p>
-      <p>Custom software works best when it's built around a real workflow. These are the kinds of systems we can design after a Blueprint — each one shaped to how a business actually operates, not forced into someone else's template.</p>
-    </div>
-    <div class="callout reveal">
-      <p>You don't need an app just to have an app. You need a better way to manage the work that's already happening.</p>
+    <div class="ind-head reveal">
+      <span class="kicker">Title &amp; escrow</span>
+      <h2>Your escrow officer shouldn't be the status line.</h2>
+      <p class="ind-frame">A file board and status links that sit alongside SoftPro, Qualia, ResWare, or RamQuest, so agents and lenders can see where a file stands without calling, and outside-party requests come off the whiteboard.</p>
+      <a href="/title-escrow/" class="ind-link">See the full title &amp; escrow page &rarr;</a>
     </div>
   </div>
 </section>
 
-<section id="usecases">
+<section class="ind" id="insurance-brokerages">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <h2>Six workflows we turn into clean systems.</h2>
+    <div class="ind-head reveal">
+      <span class="kicker">Insurance brokerages</span>
+      <h2>Servicing is where the hours go, and it's the part nobody built software for.</h2>
+      <p class="ind-frame">Selling the policy is a few weeks. Servicing it is thirty years. For a life or benefits brokerage, that means:</p>
     </div>
-
-    <div class="usecases">
-
-      <article class="usecase" id="client-intake">
-        <div class="uc-head"><span class="uc-num">01</span><h3>Client Portal</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>Clients send information through emails, texts, attachments, and scattered forms. Your team chases missing details, answers the same status questions, and organizes documents by hand.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Give clients one place to submit information, upload files, track progress, and stay in the loop.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A secure client portal with intake forms, document uploads, individual client accounts, status tracking, and an admin dashboard for your team.</p></div>
-            <div class="chips"><span class="chip">Client login</span><span class="chip">Intake forms</span><span class="chip">File uploads</span><span class="chip">Status updates</span></div>
-          </div>
+    <div class="ind-grid reveal">
+      <ul class="pains">
+        <li>Every policy loan, premium change, beneficiary update, and address change starts as a phone call or email to the office, gets re-keyed by staff onto a carrier form, and then sits in someone's inbox until the carrier responds.</li>
+        <li>Clients call to ask what their cash value is, what they owe on a policy loan, or when a premium is due, and the answer lives in a carrier portal only the broker can log into.</li>
+        <li>Carrier portals don't talk to each other, so a brokerage placing business with three carriers has three logins, three formats, and a spreadsheet stitching them together.</li>
+        <li>Renewals, conversions, and anniversary reviews slip because nothing flags them until a client asks.</li>
+        <li>Growth is capped by staff. Every hundred new policies means another servicing hire.</li>
+      </ul>
+      <div class="ind-answer">
+        <div class="ans">
+          <span class="ans-label">What we build</span>
+          <p>A servicing layer the client can see. Clients submit requests through pre-filled forms that validate before they reach you, sign where signatures are required, and track status without calling. Staff see every open request in one queue, with what's waiting on the carrier and what's waiting on the client. Policy data is presented in one place regardless of carrier. Reminders fire for renewals and reviews before the client thinks to ask.</p>
         </div>
-      </article>
-
-      <article class="usecase" id="job-tracking">
-        <div class="uc-head"><span class="uc-num">02</span><h3>Claims or Job Management Platform</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>Work comes in through forms, calls, email, and spreadsheets, then gets passed around by hand. Nobody has a clean view of where each job or claim actually stands.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Turn the full job lifecycle into one trackable workflow.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A system where customers submit requests, admins review and assign them, partners complete the work, and everyone sees the current status in real time.</p></div>
-            <div class="chips"><span class="chip">Claim / job intake</span><span class="chip">Assignment workflow</span><span class="chip">Photo &amp; doc uploads</span><span class="chip">Status tracking</span></div>
-          </div>
+        <div class="ans">
+          <span class="ans-label stays">What stays exactly as it is</span>
+          <p>Carrier systems remain the system of record. Your team still reviews and submits every request; nothing goes to a carrier without a human deciding it should. Licensing, suitability, and compliance decisions stay with you.</p>
         </div>
-      </article>
-
-      <article class="usecase" id="operations-dashboard">
-        <div class="uc-head"><span class="uc-num">03</span><h3>Internal Operations Dashboard</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>The business runs on spreadsheets, sticky notes, inboxes, and "ask so-and-so" knowledge. The information exists — it's just scattered across too many places.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Centralize what matters so the team can see what needs attention.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A private dashboard that tracks clients, tasks, deadlines, forms, payments, and statuses in one place — with reports you don't have to rebuild every week.</p></div>
-            <div class="chips"><span class="chip">Client / project records</span><span class="chip">Task tracking</span><span class="chip">Due dates</span><span class="chip">Reporting</span></div>
-          </div>
+        <div class="lands">
+          <span class="ans-label">Where it usually lands</span>
+          <p class="tier">Operations Platform <small>from $25,000 · typically 10–16 weeks</small></p>
+          <p>Clients need their own secure login to see their policies.</p>
         </div>
-      </article>
-
-      <article class="usecase" id="partner-access">
-        <div class="uc-head"><span class="uc-num">04</span><h3>Partner or Vendor Portal</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>Outside partners need assignments, documents, and updates — but it all happens through email chains, phone calls, and manual follow-up.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Give partners a controlled portal where they see only what they need.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A partner-facing dashboard with assigned work, required actions, upload fields, status changes, and a clear history of what's been done.</p></div>
-            <div class="chips"><span class="chip">Role-based access</span><span class="chip">Work queue</span><span class="chip">Uploads</span><span class="chip">Admin approvals</span></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="usecase" id="scheduling-pipeline">
-        <div class="uc-head"><span class="uc-num">05</span><h3>Scheduling &amp; Pipeline System</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>You're juggling appointments, due dates, follow-ups, client stages, and reminders across a handful of disconnected tools.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Build one pipeline that shows what stage every lead, client, and job is in.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A workflow board that tracks leads and active clients, key dates, appointment history, and the next step for each one.</p></div>
-            <div class="chips"><span class="chip">Lead / client pipeline</span><span class="chip">Calendar &amp; dates</span><span class="chip">Follow-up reminders</span><span class="chip">Stage-based workflow</span></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="usecase" id="reporting">
-        <div class="uc-head"><span class="uc-num">06</span><h3>Custom Reporting Tool</h3></div>
-        <div class="uc-grid">
-          <div class="uc-narrative">
-            <div class="uc-block"><span class="uc-label">The pain</span><p>Reports get built by hand every week — copying data from different tools into spreadsheets. Owners and managers can't quickly see what's actually happening.</p></div>
-            <div class="uc-block"><span class="uc-label">The opportunity</span><p>Automate the reporting layer so the numbers are there without the weekly rebuild.</p></div>
-          </div>
-          <div class="uc-build">
-            <div class="uc-block"><span class="uc-label accent">What we'd build</span><p>A dashboard that pulls key business data together, filters it by date, status, client, or team member, and exports clean reports.</p></div>
-            <div class="chips"><span class="chip">KPI dashboard</span><span class="chip">CSV / PDF export</span><span class="chip">Scheduled reports</span><span class="chip">Integrations</span></div>
-          </div>
-        </div>
-      </article>
-
+        <button type="button" class="btn-ghost" onclick="openContact()">Talk through your version</button>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta-sec">
+<section class="ind" id="property-management">
   <div class="wrap">
-    <h2>Have a workflow like one of these?</h2>
-    <p class="cta-copy">Start with a free 30-minute call. If it's a fit, we map your process in a Blueprint and hand you a clear scope and fixed-price quote before any development begins. You keep the Blueprint whether you build with us or not.</p>
+    <div class="ind-head reveal">
+      <span class="kicker">Property management firms</span>
+      <h2>Every unit has a story, and it's spread across five inboxes.</h2>
+      <p class="ind-frame">Off-the-shelf property software handles rent and accounting well. It handles the rest badly:</p>
+    </div>
+    <div class="ind-grid reveal">
+      <ul class="pains">
+        <li>Maintenance requests come in by text, email, and phone. Assigning a vendor, confirming they showed up, getting photos back, and telling the tenant it's done is a chain of calls.</li>
+        <li>Owners want to know what's happening with their unit and email the manager to ask. The answer takes twenty minutes to assemble from three places.</li>
+        <li>Turnover is a checklist nobody wrote down: notice received, inspection, make-ready, listing, showings, application, lease. Units sit empty because a step got missed.</li>
+        <li>Vendors have no system, so every invoice, W-9, and insurance certificate is chased manually.</li>
+        <li>Inspections live in a phone's camera roll.</li>
+      </ul>
+      <div class="ind-answer">
+        <div class="ans">
+          <span class="ans-label">What we build</span>
+          <p>A work order and turnover system that sits beside your accounting software. Tenants submit requests through a link, vendors get assigned and update from their phone with photos, owners see status through a secure link instead of emailing you. Turnover runs as a tracked checklist with dates, so an empty unit is never a surprise. Vendor documents and expirations are tracked in one place.</p>
+        </div>
+        <div class="ans">
+          <span class="ans-label stays">What stays exactly as it is</span>
+          <p>Rent collection, accounting, and leases stay in your existing property management software. This connects to it where it makes sense and never duplicates it.</p>
+        </div>
+        <div class="lands">
+          <span class="ans-label">Where it usually lands</span>
+          <p class="tier">Workflow <small>from $15,000 · typically 6–10 weeks</small></p>
+          <p>Tenants, owners, and vendors respond through secure links; nobody needs an account.</p>
+        </div>
+        <button type="button" class="btn-ghost" onclick="openContact()">Talk through your version</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ind" id="specialty-trades">
+  <div class="wrap">
+    <div class="ind-head reveal">
+      <span class="kicker">Specialty trade contractors</span>
+      <h2>The job runs fine. The paperwork around it doesn't.</h2>
+      <p class="ind-frame">Field service tools handle scheduling and invoicing for a plumber or an electrician. Specialty trades (fire protection, elevator, HVAC controls, commercial glazing, low-voltage) have a different problem:</p>
+    </div>
+    <div class="ind-grid reveal">
+      <ul class="pains">
+        <li>Work is recurring and compliance-driven. Inspections, certifications, and service intervals are tracked on a spreadsheet that someone updates when they remember.</li>
+        <li>Every job produces documents a customer or an inspector will eventually demand: test reports, certificates, photos, sign-offs. They live in email attachments and a technician's truck.</li>
+        <li>Bids and change orders go back and forth by email, and nobody can say which version the customer approved.</li>
+        <li>Customers call to ask when the next inspection is due or whether the report was filed.</li>
+        <li>Techs collect the same information on paper, then someone types it in.</li>
+      </ul>
+      <div class="ind-answer">
+        <div class="ans">
+          <span class="ans-label">What we build</span>
+          <p>A job and compliance record for every site you service. Recurring inspections and certifications schedule themselves and warn before they lapse. Technicians complete forms on a phone, with photos, and the report generates itself. Customers get a secure link to their site's history, next due dates, and every report you've ever filed for them. Change orders are approved with a click and stored against the job.</p>
+        </div>
+        <div class="ans">
+          <span class="ans-label stays">What stays exactly as it is</span>
+          <p>Dispatching and invoicing stay in your field service software if you have one. This is the layer for what that software forgets: the records, the deadlines, and the customer's questions.</p>
+        </div>
+        <div class="lands">
+          <span class="ans-label">Where it usually lands</span>
+          <p class="tier">Workflow <small>from $15,000 · typically 6–10 weeks</small></p>
+          <p>Field forms, generated documents, and customer links, with no customer logins to manage.</p>
+        </div>
+        <button type="button" class="btn-ghost" onclick="openContact()">Talk through your version</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ind" id="auto-dealers">
+  <div class="wrap">
+    <div class="ind-head reveal">
+      <span class="kicker">Used auto dealerships · Warranty claims</span>
+      <h2>Half a staffer's day is spent on phone tag between the customer and three service shops.</h2>
+      <p class="ind-frame">A dealership that sells warranties on used vehicles inherits a coordination job nobody planned for:</p>
+    </div>
+    <div class="ind-grid reveal">
+      <ul class="pains">
+        <li>A customer calls with a problem. Staff confirm coverage, then call each service shop to find availability, hand the job off, and call back repeatedly to check status.</li>
+        <li>The customer calls the dealership for updates because the shop won't call them.</li>
+        <li>Which shop has which car, and where each claim stands, lives in one person's head and a notepad.</li>
+        <li>Warranty renewals suffer because the claim experience was slow and opaque, even when the repair was fine.</li>
+        <li>At roughly half of one staff member's day, the coordination alone costs a dealership around $25,000 a year in recoverable labor.</li>
+      </ul>
+      <div class="ind-answer">
+        <div class="ans">
+          <span class="ans-label">What we build</span>
+          <p>Customers start their own claim online. They self-schedule against live shop availability from one master calendar. Each shop sees only its assigned jobs and updates status with photos and notes. Status changes email the customer automatically. Staff see every active claim on one dashboard and keep full control of which shop gets which job.</p>
+        </div>
+        <div class="ans">
+          <span class="ans-label stays">What stays exactly as it is</span>
+          <p>How warranty coverage gets determined doesn't change. Your team makes that call the way it does today. The system records it and removes the busywork that follows.</p>
+        </div>
+        <div class="lands">
+          <span class="ans-label">Where it usually lands</span>
+          <p class="tier">Workflow <small>from $15,000 · typically 6–10 weeks</small></p>
+          <p>Customers and shops work through secure links; the dealership is the only party that logs in.</p>
+        </div>
+        <button type="button" class="btn-ghost" onclick="openContact()">Talk through your version</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <div class="wrap">
+    <h2>Don't see your industry?</h2>
+    <p class="cta-copy">The pattern is the same everywhere: a process that reaches outside your team, a spreadsheet holding it together, and one person who knows how it really works. If that sounds like your office, a Blueprint will tell you exactly what fixing it takes and what it costs. $1,000, credited toward the build, and you own it either way.</p>
     <button type="button" class="btn" onclick="openContact()">Book a free 30-minute call</button>
     <div class="cta-sub">No cost, no obligation. Erick replies within a day to set a time.</div>
   </div>
@@ -437,7 +505,7 @@
     m.classList.remove('open'); h.classList.remove('active'); h.setAttribute('aria-expanded','false');
   }
 
-  // contact modal (identical behavior to homepage)
+  // contact modal (same behavior as the homepage; leads are tagged with this page)
   const cm = document.getElementById('contactModal');
   function openContact(){ cm.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('cName').focus(),120); }
   function closeContact(){ cm.classList.remove('open'); document.body.style.overflow=''; }
@@ -454,7 +522,7 @@
     if(!name || !email){ msg.className='form-msg err'; msg.textContent='Please add your name and email.'; return; }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.className='form-msg err'; msg.textContent='That email doesn’t look right — mind checking it?'; return; }
     if(!problem){ msg.className='form-msg err'; msg.textContent='Tell us the biggest problem you’re trying to solve — even a sentence helps.'; document.getElementById('cProblem').focus(); return; }
-    const payload = { name, email, phone: document.getElementById('cPhone').value.trim(), problem, tried: document.getElementById('cTried').value.trim(), why: document.getElementById('cWhy').value.trim(), website: document.getElementById('cWebsite').value.trim() };
+    const payload = { name, email, phone: document.getElementById('cPhone').value.trim(), problem, tried: document.getElementById('cTried').value.trim(), why: document.getElementById('cWhy').value.trim(), intent: 'industries', website: document.getElementById('cWebsite').value.trim() };
     btn.disabled = true; btn.textContent = 'Sending…';
     try{
       const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });

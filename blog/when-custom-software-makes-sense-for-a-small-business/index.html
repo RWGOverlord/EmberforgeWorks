@@ -73,6 +73,28 @@
   }
   nav a.cta:hover{border-color:var(--ember);color:var(--ember-2)}
 
+  /* "Who we're for" menu */
+  .dd{position:relative}
+  .dd-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;color:var(--muted);font-family:"IBM Plex Sans",sans-serif;font-size:14px;transition:.2s}
+  .dd-btn svg{width:10px;height:10px;transition:transform .2s}
+  .dd-btn:hover,.dd-btn.active,.dd.open .dd-btn{color:var(--ember-2)}
+  .dd.open .dd-btn svg{transform:rotate(180deg)}
+  .dd-panel{display:none;position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%);z-index:120;grid-template-columns:repeat(2,auto);gap:0 48px;padding:24px 30px 20px;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .dd-panel::before{content:"";position:absolute;left:0;right:0;top:-24px;height:24px}
+  .dd.open .dd-panel{display:grid}
+  .dd-h{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+  .dd-col a{display:block;padding:6px 0;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:14.5px;text-decoration:none;white-space:nowrap;transition:color .2s}
+  .dd-col a:hover{color:var(--ember-2)}
+  .dd-col a.dd-more{color:var(--ember-2);margin-top:8px}
+  @media(hover:hover) and (min-width:761px){.dd:hover .dd-panel{display:grid}.dd:hover .dd-btn svg{transform:rotate(180deg)}}
+  .mobile-menu{max-height:calc(100vh - 69px);overflow-y:auto}
+  .m-who summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:15px 2px;border-bottom:1px solid var(--line);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:16px}
+  .m-who summary::-webkit-details-marker{display:none}
+  .m-who summary::after{content:"+";color:var(--ember-2);font-family:"IBM Plex Mono",monospace;font-size:18px}
+  .m-who[open] summary::after{content:"\2013"}
+  .m-who .dd-h{margin:16px 0 2px 2px}
+  .mobile-menu .m-who a{padding:10px 2px 10px 14px;border-bottom:0;color:var(--muted);font-size:15px}
+
   /* hamburger (mobile only) */
   .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
   .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s ease;transform-origin:center}
@@ -159,9 +181,32 @@
   <div class="wrap">
     <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
     <div class="nav-links">
-      <a href="/how-we-build/" class="link">How We Build</a>
+      <div class="dd" id="navWho">
+        <button type="button" class="dd-btn" aria-expanded="false" aria-controls="navWhoPanel" onclick="toggleWho(event)">Who we're for<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="dd-panel" id="navWhoPanel">
+          <div class="dd-col">
+            <p class="dd-h">By industry</p>
+            <a href="/title-escrow/">Title &amp; escrow</a>
+            <a href="/industries/#insurance-brokerages">Insurance brokerages</a>
+            <a href="/industries/#property-management">Property management</a>
+            <a href="/industries/#specialty-trades">Specialty trade contractors</a>
+            <a href="/industries/#auto-dealers">Used auto dealerships</a>
+            <a href="/industries/" class="dd-more">All industries &rarr;</a>
+          </div>
+          <div class="dd-col">
+            <p class="dd-h">By workflow</p>
+            <a href="/how-we-build/#client-intake">Client intake &amp; status</a>
+            <a href="/how-we-build/#job-tracking">Job &amp; claims tracking</a>
+            <a href="/how-we-build/#operations-dashboard">Internal operations dashboard</a>
+            <a href="/how-we-build/#partner-access">Partner &amp; vendor access</a>
+            <a href="/how-we-build/#scheduling-pipeline">Scheduling &amp; pipeline</a>
+            <a href="/how-we-build/#reporting">Reporting</a>
+            <a href="/how-we-build/" class="dd-more">See all workflows &rarr;</a>
+          </div>
+        </div>
+      </div>
+      <a href="/#packages" class="link">Pricing</a>
       <a href="/#about" class="link">About</a>
-      <a href="/#packages" class="link">Packages</a>
       <a href="/blog/" class="link">Insights</a>
       <a href="/#contact" class="cta">Book a free call</a>
     </div>
@@ -172,9 +217,26 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/how-we-build/" onclick="closeMenu()">How We Build</a>
+  <details class="m-who">
+    <summary>Who we're for</summary>
+    <p class="dd-h">By industry</p>
+    <a href="/title-escrow/" onclick="closeMenu()">Title &amp; escrow</a>
+    <a href="/industries/#insurance-brokerages" onclick="closeMenu()">Insurance brokerages</a>
+    <a href="/industries/#property-management" onclick="closeMenu()">Property management</a>
+    <a href="/industries/#specialty-trades" onclick="closeMenu()">Specialty trade contractors</a>
+    <a href="/industries/#auto-dealers" onclick="closeMenu()">Used auto dealerships</a>
+    <a href="/industries/" onclick="closeMenu()">All industries &rarr;</a>
+    <p class="dd-h">By workflow</p>
+    <a href="/how-we-build/#client-intake" onclick="closeMenu()">Client intake &amp; status</a>
+    <a href="/how-we-build/#job-tracking" onclick="closeMenu()">Job &amp; claims tracking</a>
+    <a href="/how-we-build/#operations-dashboard" onclick="closeMenu()">Internal operations dashboard</a>
+    <a href="/how-we-build/#partner-access" onclick="closeMenu()">Partner &amp; vendor access</a>
+    <a href="/how-we-build/#scheduling-pipeline" onclick="closeMenu()">Scheduling &amp; pipeline</a>
+    <a href="/how-we-build/#reporting" onclick="closeMenu()">Reporting</a>
+    <a href="/how-we-build/" onclick="closeMenu()">See all workflows &rarr;</a>
+  </details>
+  <a href="/#packages" onclick="closeMenu()">Pricing</a>
   <a href="/#about" onclick="closeMenu()">About</a>
-  <a href="/#packages" onclick="closeMenu()">Packages</a>
   <a href="/blog/" onclick="closeMenu()">Insights</a>
   <a href="/#contact" class="mcta" onclick="closeMenu()">Book a free call</a>
 </div>
@@ -298,6 +360,21 @@
     </div>
   </div>
 </footer>
+
+<script>
+  /* "Who we're for" menu: click toggles (touch), hover opens (desktop), Escape or outside click closes */
+  function toggleWho(e){
+    e.stopPropagation();
+    const d=document.getElementById('navWho'), open=d.classList.toggle('open');
+    d.querySelector('.dd-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeWho(){
+    const d=document.getElementById('navWho');
+    d.classList.remove('open'); d.querySelector('.dd-btn').setAttribute('aria-expanded','false');
+  }
+  document.addEventListener('click', e=>{ if(!document.getElementById('navWho').contains(e.target)) closeWho(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeWho(); });
+</script>
 
 </body>
 </html>
