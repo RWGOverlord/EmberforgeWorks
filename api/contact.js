@@ -23,7 +23,7 @@ export default async function handler(req, res) {
   const why     = clean(body.why);
   const website = clean(body.website); // honeypot
   // which button opened the form; anything unexpected is dropped
-  const INTENTS = { call: 'Free 30-minute call', blueprint: 'Blueprint (pricing section)' };
+  const INTENTS = { call: 'Free 30-minute call', blueprint: 'Blueprint (pricing section)', title: 'Title & escrow page' };
   const intentKey = clean(body.intent);
   const intent  = Object.hasOwn(INTENTS, intentKey) ? INTENTS[intentKey] : '';
 

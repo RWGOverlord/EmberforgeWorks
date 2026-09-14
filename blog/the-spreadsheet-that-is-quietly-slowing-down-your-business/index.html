@@ -45,10 +45,6 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
   a{color:inherit;text-decoration:none}
   .kicker{
     font-family:"IBM Plex Mono",monospace;
@@ -68,14 +64,14 @@
   .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
   .logo-mark{height:30px;width:auto;display:block}
   .nav-links{display:flex;align-items:center;gap:22px}
-  .nav-links a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a.link{color:var(--muted);text-decoration:none;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:14px}
   .nav-links a.link:hover,.nav-links a.link.active{color:var(--ember-2)}
   nav a.cta{
-    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;
     color:var(--ink);text-decoration:none;border:1px solid var(--line);
     padding:9px 16px;border-radius:8px;transition:.2s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500;
   }
-  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2)}
 
   /* hamburger (mobile only) */
   .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
@@ -91,7 +87,7 @@
     transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
   }
   .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
-  .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
+  .mobile-menu a{display:block;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line);font-family:"IBM Plex Sans",sans-serif;font-size:16px}
   .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
   @media(max-width:760px){.nav-links{display:none}.hamburger{display:block}.mobile-menu{display:block}}
 
@@ -105,8 +101,9 @@
   }
   .article-head .wrap{position:relative;max-width:760px}
   .back{
-    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:13px;
+    display:block;width:fit-content;
     color:var(--muted);transition:.2s;margin-bottom:28px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;
   }
   .back:hover{color:var(--ember-2)}
   .article-head h1{
@@ -114,12 +111,7 @@
     font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.06;letter-spacing:-.025em;
     margin:16px 0 22px;
   }
-  .post-meta{display:flex;align-items:center;gap:11px;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted-2);flex-wrap:wrap}
-  .post-meta .av{
-    width:34px;height:34px;border-radius:50%;flex-shrink:0;
-    background:linear-gradient(135deg,var(--ember-2),var(--ember));
-    box-shadow:0 0 14px var(--glow);
-  }
+  .post-meta{display:flex;align-items:center;gap:11px;color:var(--muted-2);flex-wrap:wrap;font-family:"IBM Plex Sans",sans-serif;font-size:14px}
   .post-meta b{color:var(--ink);font-weight:500}
   .post-meta .dot{color:var(--line)}
 
@@ -143,12 +135,13 @@
   .article-cta h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.4rem;letter-spacing:-.02em;margin-bottom:10px}
   .article-cta p{color:var(--muted);font-size:15px;margin-bottom:22px}
   .btn{
-    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;
-    text-decoration:none;color:#1a1206;font-weight:500;
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));
-    padding:14px 28px;border-radius:10px;transition:.22s;box-shadow:0 0 28px var(--glow);
+    display:inline-block;
+    text-decoration:none;color:#1a1206;
+    background:var(--ember);
+    padding:14px 28px;border-radius:10px;transition:.22s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:15px;font-weight:600;
   }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 38px var(--glow)}
+  .btn:hover{background:var(--ember-2)}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
@@ -207,7 +200,6 @@
     <span class="kicker">Business Systems</span>
     <h1>The Spreadsheet That Is Quietly Slowing Down Your Business</h1>
     <div class="post-meta">
-      <span class="av"></span>
       <span>By <b>Erick Quintanilla</b></span>
       <span class="dot">·</span>
       <time datetime="2026-06-07">June 7, 2026</time>

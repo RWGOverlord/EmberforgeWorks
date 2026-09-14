@@ -55,10 +55,6 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-  body::after{
-    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
   .kicker{
     font-family:"IBM Plex Mono",monospace;
     font-size:12px;letter-spacing:.22em;text-transform:uppercase;
@@ -77,20 +73,20 @@
   .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
   .mark{
     width:24px;height:24px;border-radius:6px;
-    background:linear-gradient(150deg,var(--ember-2),var(--ember));
+    background:var(--ember);
     box-shadow:0 0 16px var(--glow);position:relative;flex:none;
   }
-  .mark::after{content:"";position:absolute;inset:7px;border-radius:2px;background:var(--bg);}
+  .mark::after{content:"";position:absolute;inset:7px;border-radius:2px;background:var(--bg)}
   .logo-mark{height:30px;width:auto;display:block}
   .nav-links{display:flex;align-items:center;gap:22px}
-  .nav-links a.link{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);text-decoration:none;transition:.2s}
+  .nav-links a.link{color:var(--muted);text-decoration:none;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:14px}
   .nav-links a.link:hover{color:var(--ember-2)}
   nav a.cta{
-    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.04em;
     color:var(--ink);text-decoration:none;border:1px solid var(--line);
     padding:9px 16px;border-radius:8px;transition:.2s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500;
   }
-  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2);box-shadow:0 0 18px var(--glow)}
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2)}
 
   /* hamburger (mobile only) */
   .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
@@ -106,7 +102,7 @@
     transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
   }
   .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
-  .mobile-menu a{display:block;font-family:"IBM Plex Mono",monospace;font-size:15px;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line)}
+  .mobile-menu a{display:block;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line);font-family:"IBM Plex Sans",sans-serif;font-size:16px}
   .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
 
   /* build flow / de-risk */
@@ -119,7 +115,7 @@
   .flow-step h4{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.02rem;margin-bottom:7px;color:var(--ink)}
   .flow-step p{font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:11px}
   .flow-check{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:var(--ember-2);display:inline-flex;align-items:center;gap:6px;line-height:1.3}
-  .flow-check::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--ember);box-shadow:0 0 7px var(--ember)}
+  .flow-check::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--ember)}
   .flow-foot{display:flex;gap:30px;flex-wrap:wrap;margin-top:44px;padding-top:28px;border-top:1px solid var(--line)}
   .flow-assure{flex:1;min-width:210px}
   .flow-assure h5{font-family:"Bricolage Grotesque";font-weight:700;font-size:.98rem;color:var(--ink);margin-bottom:6px}
@@ -140,23 +136,22 @@
     margin:22px 0 26px;
   }
   h1 .ember{
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    color:var(--ember);
   }
   .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.28rem);color:var(--muted);max-width:660px}
   .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:34px}
-  .btn-link{
-    font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;color:var(--ink);
+  .btn-link{color:var(--ink);
     text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:.2s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:15px;
   }
   .btn-link:hover{color:var(--ember-2);border-color:var(--ember)}
   .hero-note{font-size:.92rem;line-height:1.55;color:var(--muted);max-width:560px;margin-top:16px}
   .hero-meta{display:flex;flex-wrap:wrap;gap:26px;margin-top:36px}
-  .hero-meta span{
-    font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted);
+  .hero-meta span{color:var(--muted);
     display:flex;align-items:center;gap:8px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;
   }
-  .hero-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 8px var(--ember)}
+  .hero-meta span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ember)}
 
   /* SECTION SHELL */
   section{padding:92px 0;border-top:1px solid var(--line)}
@@ -165,6 +160,8 @@
     font-family:"Bricolage Grotesque";font-weight:700;
     font-size:clamp(1.8rem,3.2vw,2.6rem);letter-spacing:-.02em;line-height:1.1;margin-top:16px;
   }
+
+  .sec-head h2:first-child{margin-top:0}
 
   /* CAPABILITIES */
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
@@ -175,7 +172,7 @@
   }
   .card::before{
     content:"";position:absolute;top:0;left:0;right:0;height:2px;
-    background:linear-gradient(90deg,var(--ember),var(--ember-2));
+    background:var(--ember);
     opacity:0;transition:.25s;
   }
   .card:hover{border-color:#33373f;transform:translateY(-3px)}
@@ -191,9 +188,9 @@
   .tri{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .about-lead{color:var(--muted);font-size:1.05rem;max-width:720px;margin-bottom:34px}
   .more-link{
-    display:inline-flex;align-items:center;gap:9px;margin-top:30px;
-    font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;color:var(--ember-2);
+    display:inline-flex;align-items:center;gap:9px;margin-top:30px;color:var(--ember-2);
     text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:3px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:15px;
   }
   .founder-facts{
     display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:18px 48px;
@@ -231,10 +228,6 @@
     background:linear-gradient(180deg,var(--panel),var(--bg-2));
     border:1px solid var(--line);border-radius:18px;overflow:hidden;position:relative;
   }
-  .build::after{
-    content:"";position:absolute;right:-120px;top:-120px;width:340px;height:340px;border-radius:50%;
-    background:radial-gradient(circle,var(--glow),transparent 65%);pointer-events:none;
-  }
   .build-head{
     padding:36px 38px 30px;border-bottom:1px solid var(--line);position:relative;
     display:grid;grid-template-columns:1fr auto;gap:26px;align-items:start;
@@ -244,12 +237,13 @@
     font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ember-2);margin-bottom:14px;
   }
-  .status i{width:6px;height:6px;border-radius:50%;background:var(--ember);box-shadow:0 0 0 3px var(--glow)}
+  .status i{width:6px;height:6px;border-radius:50%;background:var(--ember)}
   .build-name{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1.1}
   .build-kind{color:var(--muted);font-size:1rem;margin-top:5px}
   .build-link{
-    display:inline-block;margin-top:12px;font-family:"IBM Plex Mono",monospace;font-size:12.5px;
+    display:inline-block;margin-top:12px;
     color:var(--ember-2);text-decoration:none;border-bottom:1px solid rgba(255,122,24,.4);padding-bottom:2px;transition:.2s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;
   }
   .build-link:hover{color:var(--ember);border-color:var(--ember)}
   .stamp{
@@ -277,10 +271,10 @@
   /* screenshot tabs */
   .shots{padding:30px 38px 34px;position:relative}
   .shot-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
-  .shot-tab{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);
+  .shot-tab{color:var(--muted);
     background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:999px;
     padding:7px 15px;cursor:pointer;transition:.2s;white-space:nowrap;
+    font-family:"IBM Plex Sans",sans-serif;font-size:13px;
   }
   .shot-tab:hover{color:var(--ink);border-color:#33373f}
   .shot-tab[aria-selected="true"]{color:var(--ember-2);border-color:var(--ember);background:var(--glow)}
@@ -308,9 +302,9 @@
   .proof-cta p{color:var(--ink);font-size:1.05rem;max-width:56ch}
   .proof-cta .btn-ghost{width:auto;padding:12px 22px;border-color:rgba(255,122,24,.45)}
   .chips{display:flex;flex-wrap:wrap;gap:10px;padding:0 38px 34px;position:relative}
-  .chip{
-    font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink);
+  .chip{color:var(--ink);
     border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:rgba(255,255,255,.02);
+    font-family:"IBM Plex Sans",sans-serif;font-size:13px;
   }
 
   /* PACKAGES */
@@ -337,7 +331,7 @@
   }
   .price-lbl{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2)}
   .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:2.4rem;letter-spacing:-.02em;line-height:1;margin:4px 0 8px}
-  .price .ember{background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .price .ember{color:var(--ember)}
   .price .per{font-family:"IBM Plex Sans",sans-serif;font-size:1rem;font-weight:600;color:var(--muted);letter-spacing:0}
   .credit{font-size:.82rem;color:var(--ember-2);line-height:1.4;margin-bottom:20px}
   .bp-price .btn{text-align:center;font-size:13px;padding:13px 20px}
@@ -354,18 +348,18 @@
     display:flex;flex-direction:column;position:relative;transition:.25s;
   }
   .pkg:hover{transform:translateY(-3px);border-color:#33373f}
-  .pkg.feat{border-color:var(--ember);box-shadow:0 0 34px var(--glow)}
+  .pkg.feat{border-color:var(--ember)}
   .pkg.feat:hover{border-color:var(--ember)}
   /* scale rail — fill width encodes build size across the ladder */
   .rail{height:3px;background:rgba(236,235,230,.07);position:relative;overflow:hidden;border-radius:13px 13px 0 0}
-  .rail span{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--ember),var(--ember-2))}
+  .rail span{position:absolute;left:0;top:0;bottom:0;background:var(--ember)}
   .rail-1 span{width:34%}
   .rail-2 span{width:67%}
   .rail-3 span{width:100%}
   .pkg .badge{
     position:absolute;top:-10px;right:16px;
     font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));color:#1a1206;font-weight:600;
+    background:var(--ember);color:#1a1206;font-weight:600;
     padding:4px 10px;border-radius:999px;white-space:nowrap;
   }
   .pkg-head{padding:26px 22px 0}
@@ -389,9 +383,9 @@
   .pkg-cta{margin:24px 22px 0}
   .btn-ghost{
     display:block;text-align:center;text-decoration:none;
-    font-family:"IBM Plex Mono",monospace;font-size:13px;letter-spacing:.03em;
     color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 16px;
     background:transparent;width:100%;cursor:pointer;transition:.2s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500;
   }
   .btn-ghost:hover{border-color:var(--ember);color:var(--ember-2)}
   .pkg.feat .btn-ghost{border-color:rgba(255,122,24,.45)}
@@ -407,7 +401,7 @@
   .custom .custom-price{
     font-family:"Bricolage Grotesque";font-weight:800;font-size:1.35rem;letter-spacing:-.02em;
     white-space:nowrap;
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));-webkit-background-clip:text;background-clip:text;color:transparent;
+    color:var(--ember);
   }
 
   /* care plan */
@@ -429,13 +423,14 @@
   .cta-sec h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2rem,4.4vw,3.2rem);letter-spacing:-.025em;max-width:760px;margin:18px auto 30px;line-height:1.06}
   .cta-sec h2 + .cta-copy{color:var(--muted);font-size:1.05rem;max-width:600px;margin:-12px auto 30px}
   .btn{
-    display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:14px;letter-spacing:.03em;
-    text-decoration:none;color:#1a1206;font-weight:500;
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));
-    padding:15px 30px;border-radius:10px;transition:.22s;box-shadow:0 0 28px var(--glow);
+    display:inline-block;
+    text-decoration:none;color:#1a1206;
+    background:var(--ember);
+    padding:15px 30px;border-radius:10px;transition:.22s;
+    font-family:"IBM Plex Sans",sans-serif;font-size:15px;font-weight:600;
   }
-  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 38px var(--glow)}
-  .cta-sub{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--muted-2);margin-top:18px}
+  .btn:hover{background:var(--ember-2)}
+  .cta-sub{color:var(--muted-2);margin-top:18px;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px}
 
   /* FOOTER */
   footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
@@ -451,9 +446,10 @@
   /* reveal */
   .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.16,.84,.44,1)}
   .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
 
   /* CONTACT MODAL */
-  button.btn{border:none;cursor:pointer;font-family:"IBM Plex Mono",monospace}
+  button.btn{border:none;cursor:pointer;font-family:"IBM Plex Sans",sans-serif}
   .modal-overlay{
     position:fixed;inset:0;z-index:1000;display:none;
     align-items:center;justify-content:center;padding:24px;
@@ -465,7 +461,7 @@
     width:100%;max-width:540px;max-height:92vh;overflow-y:auto;
     background:var(--panel);border:1px solid var(--line);border-radius:16px;
     padding:34px 32px;position:relative;
-    box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 60px var(--glow);
+    box-shadow:0 30px 90px rgba(0,0,0,.6);
     transform:translateY(14px);transition:transform .22s cubic-bezier(.16,.84,.44,1);
   }
   .modal-overlay.open .modal{transform:none}
@@ -479,8 +475,8 @@
   .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
   .field{margin-bottom:16px}
   .field label{
-    display:block;font-family:"IBM Plex Mono",monospace;font-size:11.5px;
-    letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;
+    display:block;color:var(--muted);margin-bottom:7px;
+    font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;font-weight:500;
   }
   .field label .opt{color:var(--muted-2);text-transform:none;letter-spacing:0}
   .field input,.field textarea{
@@ -501,9 +497,9 @@
   .form-success{text-align:center;padding:18px 4px}
   .form-success .check{
     width:54px;height:54px;margin:0 auto 18px;border-radius:50%;
-    background:linear-gradient(120deg,var(--ember-2),var(--ember));
+    background:var(--ember);
     display:flex;align-items:center;justify-content:center;
-    color:#1a1206;font-size:26px;box-shadow:0 0 28px var(--glow);
+    color:#1a1206;font-size:26px;
   }
   .form-success h3{margin-bottom:8px}
   .form-success p{color:var(--muted);font-size:.95rem}
@@ -612,16 +608,16 @@
 
 <header>
   <div class="wrap hero">
-    <span class="kicker reveal">Emberforge Works — Custom Operational Software</span>
-    <h1 class="reveal">Stop renting software that <span class="ember">almost</span> fits your business.</h1>
-    <p class="lead reveal">We design and build custom applications, workflow automation systems, and web-based management platforms for professional service businesses — architected around how you actually operate, and delivered end to end.</p>
-    <div class="hero-cta reveal">
+    <span class="kicker">Custom operational software</span>
+    <h1>Stop renting software that <span class="ember">almost</span> fits your business.</h1>
+    <p class="lead">We design and build custom applications, workflow automation systems, and web-based management platforms for professional service businesses — architected around how you actually operate, and delivered end to end.</p>
+    <div class="hero-cta">
       <button type="button" class="btn" onclick="openContact('call')">Book a free 30-minute call</button>
       <a href="#packages" class="btn-link">See pricing &darr;</a>
     </div>
-    <p class="hero-note reveal">No cost, no obligation. Erick replies within a day to set a time. If it's a fit, the next step is a $1,000 Blueprint, credited in full toward your build.</p>
-    <div class="hero-meta reveal">
-      <span>Built &amp; deployed, not just prototyped</span>
+    <p class="hero-note">No cost, no obligation. Erick replies within a day to set a time. If it's a fit, the next step is a $1,000 Blueprint, credited in full toward your build.</p>
+    <div class="hero-meta">
+      <span>Built, deployed, and supported</span>
       <span>Your system, your domain, no vendor lock</span>
       <span>Over a decade of enterprise systems experience</span>
     </div>
@@ -632,18 +628,16 @@
 <section id="bottlenecks">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker">Sound familiar?</span>
       <h2>You know something's broken. You just can't always name the fix.</h2>
     </div>
-    <p class="reveal" style="font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.65;color:var(--muted);max-width:780px;margin:0;">Payments you can't cleanly track. Onboarding that drags on for days. A job that doesn't move until you're on the phone. A status nobody can answer without asking you. We've spent over a decade turning exactly these bottlenecks into systems that run themselves.</p>
+    <p class="reveal" style="font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.65;color:var(--muted);max-width:780px;margin:0;">Payments you can't cleanly track. Onboarding that drags on for days. A job that doesn't move until you're on the phone. A status nobody can answer without asking you.</p>
   </div>
 </section>
 
 <section id="proof">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker">What we ship</span>
-      <h2>We don't just build software for clients. We run our own.</h2>
+      <h2>A platform we built, launched, and still maintain.</h2>
     </div>
     <p class="proof-lead reveal">The fastest way to judge a builder is to look at something they own, maintain, and put their name on. DoulaFlow was built with its co-founder Megan, a practicing doula, for her own practice first, and no feature ships until a working doula approves it. <b>It took two months to build and went live in June 2026, then spent two months in beta before its public launch in August. It's been maintained since with the same ongoing fixes and enhancements the Care Plan covers.</b></p>
 
@@ -687,7 +681,7 @@
             <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">app.mydoulaflow.com/clients</span></div>
             <div class="stage"><img src="/images/work/doulaflow-clients.png" width="1800" height="906" alt="The DoulaFlow clients list, showing each client's due date, next appointment, services, and stage." decoding="async"></div>
           </div>
-          <p class="shot-cap">Every client's stage, due date, and next appointment on one row — the whole caseload in a single view, instead of spread across six tools.</p>
+          <p class="shot-cap">Every client's stage, due date, and next appointment on one row, so the whole caseload fits in a single view instead of six tools.</p>
         </div>
 
         <div class="shot-panel" id="panel-portal" role="tabpanel" aria-labelledby="tab-portal" tabindex="0" hidden>
@@ -695,7 +689,7 @@
             <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">portal.mydoulaflow.com</span></div>
             <div class="stage phone"><img src="/images/work/doulaflow-portal.png" width="497" height="900" alt="A client's private DoulaFlow portal on a phone, showing week-by-week pregnancy progress." loading="lazy" decoding="async"></div>
           </div>
-          <p class="shot-cap">Each client gets her own secure portal on her phone — her appointments, her documents, and week-by-week progress. Access is enforced per client at the data layer.</p>
+          <p class="shot-cap">Each client gets her own secure portal on her phone, with her appointments, documents, and week-by-week progress. Access is enforced per client at the data layer.</p>
         </div>
 
         <div class="shot-panel" id="panel-invoice" role="tabpanel" aria-labelledby="tab-invoice" tabindex="0" hidden>
@@ -730,26 +724,25 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker">What we build</span>
       <h2>Systems that replace the spreadsheets, the duct tape, and the five tools that don't talk to each other.</h2>
     </div>
     <div class="grid">
-      <div class="card reveal">
+      <div class="card">
         <span class="num">01</span>
         <h3>Custom Applications</h3>
         <p>Web and mobile platforms built around your workflow — not someone else's template. Client records, scheduling, documents, and reporting unified in one system your team actually uses.</p>
       </div>
-      <div class="card reveal">
+      <div class="card">
         <span class="num">02</span>
         <h3>Process &amp; Workflow Automation</h3>
         <p>We find the repetitive, error-prone work draining your team's hours — intake, document generation, data entry, follow-ups — and build software that handles it automatically. No more manual steps between tools that don't talk to each other.</p>
       </div>
-      <div class="card reveal">
+      <div class="card">
         <span class="num">03</span>
         <h3>Web-Based Management Systems</h3>
         <p>Secure, role-based platforms your team reaches from anywhere. Real-time data, automated workflows, and reporting that retires the spreadsheets and disconnected tools holding you back.</p>
       </div>
-      <div class="card reveal">
+      <div class="card">
         <span class="num">04</span>
         <h3>End-to-End Delivery</h3>
         <p>Architecture, build, deployment, hosting, and ongoing maintenance — handled. You get a working system running on your own domain, not a prototype and an invoice.</p>
@@ -762,7 +755,6 @@
 <section id="how-builds-run">
   <div class="wrap">
     <div class="sec-head reveal flow-head">
-      <span class="kicker">How it works</span>
       <h2>A five-figure build shouldn't feel like a leap of faith.</h2>
       <p class="lead-note">Every build, from a focused internal app to a full client-facing platform, runs in controlled stages. You see working software at each step and sign off before it moves forward, and the price is fixed at the Blueprint, so the number never moves on you mid-project.</p>
     </div>
@@ -783,19 +775,19 @@
       <div class="flow-step">
         <div class="flow-num">03</div>
         <h4>Foundation</h4>
-        <p>Architecture and data model built first — the structure everything else sits on.</p>
+        <p>Architecture and data model come first, since everything else sits on them.</p>
         <span class="flow-check">You see the shape</span>
       </div>
       <div class="flow-step">
         <div class="flow-num">04</div>
         <h4>Built in stages</h4>
-        <p>Features arrive as working pieces, not one big reveal at the end. You test each as it lands.</p>
+        <p>Features arrive as working pieces, and you test each one as it lands.</p>
         <span class="flow-check">Demo &amp; feedback each stage</span>
       </div>
       <div class="flow-step">
         <div class="flow-num">05</div>
         <h4>Refine</h4>
-        <p>We iterate on what you've seen until it matches how you actually work.</p>
+        <p>We iterate on what you've seen until it matches how you work.</p>
         <span class="flow-check">Nothing ships without sign-off</span>
       </div>
       <div class="flow-step">
@@ -858,7 +850,7 @@
 
     <div class="pkg-grid">
 
-      <div class="pkg reveal">
+      <div class="pkg">
         <div class="rail rail-1"><span></span></div>
         <div class="pkg-head">
           <div class="pname">Launch</div>
@@ -881,7 +873,7 @@
         <div class="pkg-cta"><button type="button" class="btn-ghost" onclick="openContact('blueprint')">Start a Blueprint</button></div>
       </div>
 
-      <div class="pkg feat reveal">
+      <div class="pkg feat">
         <div class="rail rail-2"><span></span></div>
         <span class="badge">Where most projects land</span>
         <div class="pkg-head">
@@ -905,7 +897,7 @@
         <div class="pkg-cta"><button type="button" class="btn-ghost" onclick="openContact('blueprint')">Start a Blueprint</button></div>
       </div>
 
-      <div class="pkg reveal">
+      <div class="pkg">
         <div class="rail rail-3"><span></span></div>
         <div class="pkg-head">
           <div class="pname">Operations Platform</div>
@@ -941,7 +933,7 @@
     <div class="care reveal">
       <div>
         <h4>Care Plan</h4>
-        <p>Ongoing support after you launch. Month to month, so you stay because it is working — not because you are locked into a contract.</p>
+        <p>Ongoing support after launch, billed month to month.</p>
         <ul class="care-items">
           <li>Managed hosting &amp; uptime</li>
           <li>Priority bug fixes</li>
@@ -960,10 +952,9 @@
 <section id="about">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="kicker">Who we are</span>
       <h2>Twelve years untangling Fortune 500 operations — now focused on yours.</h2>
     </div>
-    <p class="about-lead reveal">Emberforge Works is led by Erick Quintanilla, who spent over twelve years as a developer and process consultant inside some of the most complex, heavily regulated organizations in the country — across banking, healthcare, and aviation. The work was the unglamorous core of how large enterprises actually run: mapping broken workflows by hand, automating the manual steps, and connecting systems that were never built to talk to each other. That same discipline — understand the process first, then build the system around it — is exactly what goes into your business. The only thing that's changed is speed: modern tooling now delivers in weeks what used to take enterprise teams months.</p>
+    <p class="about-lead reveal">Emberforge Works is led by Erick Quintanilla, who spent over twelve years as a developer and process consultant inside some of the most complex, heavily regulated organizations in the country, across banking, healthcare, and aviation. The work was the unglamorous core of how large enterprises run: mapping broken workflows by hand, automating the manual steps, and connecting systems that were never built to talk to each other. That same discipline goes into your business: understand the process first, then build the system around it. The only thing that's changed is speed: modern tooling now delivers in weeks what used to take enterprise teams months.</p>
     <!-- TODO: founder photo, once available -->
     <dl class="founder-facts reveal">
       <div><dt>Founder</dt><dd>Erick Quintanilla · <a href="https://www.linkedin.com/in/erick-quintanilla-a163bb36" target="_blank" rel="noopener">LinkedIn &#8599;</a></dd></div>
@@ -972,7 +963,7 @@
       <div><dt>Email</dt><dd><a href="mailto:Erick@EmberforgeWorks.com">Erick@EmberforgeWorks.com</a></dd></div>
     </dl>
     <div class="tri reveal">
-      <div class="pillar"><h4>Enterprise-grade thinking</h4><p>The same rigor applied to billion-dollar operations, scaled to fit a business your size.</p></div>
+      <div class="pillar"><h4>Workflows mapped before code</h4><p>Every build starts by documenting how the work moves today, step by step, the same way it's done inside large regulated operations.</p></div>
       <div class="pillar"><h4>Regulated-industry experience</h4><p>Built for businesses where accuracy, security, and compliance aren't optional.</p></div>
       <div class="pillar"><h4>Analyst and builder in one</h4><p>The person who maps your process is the person who builds the system. Nothing lost in the handoff.</p></div>
     </div>
@@ -1038,7 +1029,6 @@
 
 <section class="cta-sec" id="contact">
   <div class="wrap">
-    <span class="kicker">Get started</span>
     <h2>Start with a free 30-minute call.</h2>
     <p class="cta-copy">Tell us what's slowing the business down. If custom software is the right fix, the next step is a Blueprint. If it isn't, you'll hear that too.</p>
     <button type="button" class="btn" onclick="openContact('call')">Book a free 30-minute call</button>
@@ -1062,13 +1052,13 @@
   const io = new IntersectionObserver((entries)=>{
     entries.forEach((e,i)=>{
       if(e.isIntersecting){
-        e.target.style.transitionDelay = (e.target.dataset.d || (i*60)) + "ms";
+        e.target.style.transitionDelay = Math.min(i,4)*60 + "ms";
         e.target.classList.add("in");
         io.unobserve(e.target);
       }
     });
   },{threshold:.12});
-  document.querySelectorAll(".reveal").forEach((el,i)=>{ if(el.closest("header")) el.dataset.d = i*110; io.observe(el); });
+  document.querySelectorAll(".reveal").forEach((el)=>io.observe(el));
 
   /* screenshot tabs */
   document.querySelectorAll(".shot-tabs").forEach((list)=>{

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y73F9LR5TM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y73F9LR5TM');
+</script>
+<title>File Boards &amp; Status Links for Title and Escrow — Emberforge Works</title>
+<meta name="description" content="A file board and status links that sit alongside SoftPro, Qualia, ResWare, or RamQuest, so agents and lenders stop calling your escrow officer for updates. Built by Emberforge Works in Chattanooga, TN.">
+<link rel="canonical" href="https://www.emberforgeworks.com/title-escrow/" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Emberforge Works">
+<meta property="og:url" content="https://www.emberforgeworks.com/title-escrow/">
+<meta property="og:title" content="Your escrow officer shouldn't be the status line.">
+<meta property="og:description" content="A file board and status links that sit alongside your closing software, so agents and lenders can see where a file stands without calling.">
+<meta property="og:image" content="https://www.emberforgeworks.com/images/og-emberforge.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0d10;--bg-2:#101317;--panel:#14181d;--line:#23282f;
+    --ink:#ecebe6;--muted:#8b919b;--muted-2:#646a73;
+    --ember:#ff7a18;--ember-2:#ffb347;--glow:rgba(255,122,24,.16);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ember-2);font-weight:500}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;backdrop-filter:blur(12px);background:rgba(11,13,16,.72);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:"Bricolage Grotesque";font-weight:700;font-size:19px;letter-spacing:-.01em}
+  .logo-mark{height:30px;width:auto;display:block}
+  .nav-links{display:flex;align-items:center;gap:22px}
+  .nav-links a.link{color:var(--muted);text-decoration:none;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:14px}
+  .nav-links a.link:hover,.nav-links a.link.active{color:var(--ember-2)}
+  nav a.cta{color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:9px 16px;border-radius:8px;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:14px;font-weight:500}
+  nav a.cta:hover{border-color:var(--ember);color:var(--ember-2)}
+
+  /* hamburger (mobile only) */
+  .hamburger{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:11px;flex:none}
+  .hamburger span{display:block;height:2px;width:100%;background:var(--ink);border-radius:2px;transition:.25s ease;transform-origin:center}
+  .hamburger span+span{margin-top:5px}
+  .hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamburger.active span:nth-child(2){opacity:0}
+  .hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{
+    display:none;position:fixed;top:69px;left:0;right:0;z-index:99;
+    background:rgba(11,13,16,.97);backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);padding:10px 28px 20px;
+    transform:translateY(-10px);opacity:0;pointer-events:none;transition:.22s ease;
+  }
+  .mobile-menu.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .mobile-menu a{display:block;color:var(--ink);text-decoration:none;padding:15px 2px;border-bottom:1px solid var(--line);font-family:"IBM Plex Sans",sans-serif;font-size:16px}
+  .mobile-menu a.mcta{margin-top:16px;border:1px solid var(--ember);border-radius:9px;text-align:center;color:var(--ember-2);padding:15px}
+
+  /* HERO */
+  header{position:relative;padding:104px 0 80px;overflow:hidden}
+  header::before{content:"";position:absolute;top:-220px;left:50%;transform:translateX(-50%);width:900px;height:620px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 62%);filter:blur(20px);pointer-events:none}
+  .hero{position:relative;max-width:860px}
+  h1{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2.5rem,5.6vw,4.2rem);line-height:1.03;letter-spacing:-.025em;margin:22px 0 24px}
+  h1 .ember{color:var(--ember)}
+  .hero p.lead{font-size:clamp(1.05rem,1.6vw,1.26rem);color:var(--muted);max-width:660px}
+  .hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-top:34px}
+  .btn-link{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:3px;transition:.2s;font-family:"IBM Plex Sans",sans-serif;font-size:15px}
+  .btn-link:hover{color:var(--ember-2);border-color:var(--ember)}
+  .hero-note{font-size:.92rem;line-height:1.55;color:var(--muted);max-width:560px;margin-top:16px}
+
+  /* SECTION SHELL */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  .sec-head{max-width:680px;margin-bottom:44px}
+  .sec-head h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.8rem,3.2vw,2.5rem);letter-spacing:-.02em;line-height:1.1}
+  .sec-head p{color:var(--muted);font-size:1.05rem;margin-top:16px}
+
+  /* PAINS -> WHAT WE'D BUILD */
+  .fixes{border-top:1px solid var(--line)}
+  .fix{display:grid;grid-template-columns:48px 1fr 1fr;gap:0 36px;padding:30px 0;border-bottom:1px solid var(--line)}
+  .fix-num{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ember-2);letter-spacing:.1em;padding-top:4px}
+  .fix h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.28rem;letter-spacing:-.01em;line-height:1.25;margin-bottom:8px}
+  .fix-pain p{color:var(--muted);font-size:1rem}
+  .fix-build{border-left:1px solid var(--line);padding-left:36px}
+  .fix-label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ember-2);margin-bottom:8px}
+  .fix-build p{color:var(--ink);font-size:1rem}
+
+  /* BOUNDARIES */
+  .bounds{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .bound{border-left:2px solid var(--ember);padding:4px 0 4px 20px}
+  .bound h3{font-family:"Bricolage Grotesque";font-weight:600;font-size:1.08rem;margin-bottom:6px}
+  .bound p{color:var(--muted);font-size:.95rem}
+
+  /* PROOF */
+  .proof{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:center}
+  .proof-copy h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.6rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.12;margin-bottom:16px}
+  .proof-copy p{color:var(--muted);font-size:1rem;margin-bottom:14px}
+  .proof-copy a{color:var(--ember-2);border-bottom:1px solid rgba(255,122,24,.4);transition:.2s}
+  .proof-copy a:hover{color:var(--ember);border-color:var(--ember)}
+  .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg-2)}
+  .frame-bar{display:flex;align-items:center;gap:8px;padding:9px 13px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--line)}
+  .frame-bar i{width:8px;height:8px;border-radius:50%;background:#3a4048;flex:none}
+  .frame-url{flex:1;font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--muted-2);background:var(--bg);border:1px solid var(--line);border-radius:5px;padding:3px 10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .frame img{display:block;width:100%;height:auto}
+  .shot-cap{color:var(--muted);font-size:.9rem;margin-top:12px}
+
+  /* HOW IT STARTS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .step{padding:28px 28px 30px 0}
+  .step + .step{border-left:1px solid var(--line);padding-left:28px}
+  .step-k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .step h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.2rem;margin-bottom:8px}
+  .step p{color:var(--muted);font-size:.95rem}
+  .step p b{color:var(--ink);font-weight:600}
+  .step .price{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.6rem;letter-spacing:-.02em;color:var(--ember);line-height:1.1;margin-bottom:10px}
+  .step .price small{font-family:"IBM Plex Sans",sans-serif;font-size:.85rem;font-weight:500;color:var(--muted);letter-spacing:0}
+  .pricing-link{display:inline-block;margin-top:22px;color:var(--ember-2);border-bottom:1px solid rgba(255,122,24,.4);font-size:15px;transition:.2s}
+  .pricing-link:hover{color:var(--ember);border-color:var(--ember)}
+
+  /* FOUNDER */
+  .founder{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start}
+  .founder h2{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(1.6rem,2.8vw,2.2rem);letter-spacing:-.02em;line-height:1.12}
+  .founder-copy p{color:var(--muted);font-size:1.02rem;margin-bottom:18px}
+  .founder-facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.95rem;color:var(--ink)}
+  .founder-facts a{color:var(--ember-2);border-bottom:1px solid rgba(255,122,24,.4);transition:.2s}
+  .founder-facts a:hover{color:var(--ember);border-color:var(--ember)}
+
+  /* FAQ */
+  .faq{max-width:820px;border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 2px;font-family:"Bricolage Grotesque";font-weight:600;font-size:1.12rem;line-height:1.3;color:var(--ink);transition:color .2s}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";flex:none;font-family:"IBM Plex Mono",monospace;font-size:1.3rem;font-weight:400;color:var(--ember-2);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq summary:hover{color:var(--ember-2)}
+  .faq summary:focus-visible{outline:2px solid var(--ember);outline-offset:4px;border-radius:4px}
+  .faq .answer{padding:0 2px 24px;color:var(--muted);font-size:1rem;line-height:1.65;max-width:68ch}
+  .faq .answer p+p{margin-top:12px}
+
+  /* CTA */
+  .cta-sec{text-align:center;padding:104px 0}
+  .cta-sec h2{font-family:"Bricolage Grotesque";font-weight:800;font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.025em;max-width:760px;margin:0 auto 22px;line-height:1.06}
+  .cta-sec .cta-copy{color:var(--muted);max-width:600px;margin:0 auto 30px;font-size:1.05rem}
+  .btn{display:inline-block;text-decoration:none;color:#1a1206;background:var(--ember);padding:15px 30px;border-radius:10px;transition:.22s;border:none;cursor:pointer;font-family:"IBM Plex Sans",sans-serif;font-size:15px;font-weight:600}
+  .btn:hover{background:var(--ember-2)}
+  .cta-sub{color:var(--muted-2);margin-top:18px;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:38px 0;color:var(--muted-2)}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:13px}
+  footer .brand{font-size:16px}
+  footer .foot-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  footer .foot-links a{color:var(--muted-2);transition:.2s}
+  footer .foot-links a:hover{color:var(--ember-2)}
+  .modal .consent{font-size:12px;color:var(--muted-2);text-align:center;margin-top:14px;line-height:1.5}
+  .modal .consent a{color:var(--muted);text-decoration:underline;text-underline-offset:2px}
+  .modal .consent a:hover{color:var(--ember-2)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.16,.84,.44,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}}
+
+  /* MODAL */
+  button.modal-close{cursor:pointer}
+  .modal-overlay{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(6,8,10,.78);backdrop-filter:blur(8px);opacity:0;transition:opacity .22s ease}
+  .modal-overlay.open{display:flex;opacity:1}
+  .modal{width:100%;max-width:540px;max-height:92vh;overflow-y:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:34px 32px;position:relative;box-shadow:0 30px 90px rgba(0,0,0,.6);transform:translateY(14px);transition:transform .22s cubic-bezier(.16,.84,.44,1)}
+  .modal-overlay.open .modal{transform:none}
+  .modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;background:transparent;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:18px;line-height:1;transition:.2s}
+  .modal-close:hover{border-color:var(--ember);color:var(--ember-2)}
+  .modal h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.55rem;letter-spacing:-.02em;line-height:1.12;margin:10px 0 8px}
+  .modal-sub{color:var(--muted);font-size:.95rem;margin-bottom:24px}
+  .field{margin-bottom:16px}
+  .field label{display:block;color:var(--muted);margin-bottom:7px;font-family:"IBM Plex Sans",sans-serif;font-size:13.5px;font-weight:500}
+  .field label .opt{color:var(--muted-2)}
+  .field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:9px;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;font-size:15px;padding:11px 13px;transition:.18s;resize:vertical}
+  .field textarea{min-height:62px;line-height:1.5}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--ember);box-shadow:0 0 0 3px var(--glow)}
+  .field input::placeholder,.field textarea::placeholder{color:var(--muted-2)}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+  .modal .btn{width:100%;text-align:center;margin-top:8px}
+  .modal .btn:disabled{opacity:.55;cursor:not-allowed}
+  .form-msg{font-size:13.5px;margin-top:14px;display:none}
+  .form-msg.err{display:block;color:#ff8c6b}
+  .form-success{text-align:center;padding:18px 4px}
+  .form-success .check{width:54px;height:54px;margin:0 auto 18px;border-radius:50%;background:var(--ember);display:flex;align-items:center;justify-content:center;color:#1a1206;font-size:26px}
+  .form-success h3{margin-bottom:8px}
+  .form-success p{color:var(--muted);font-size:.95rem}
+
+  @media(max-width:900px){
+    .fix{grid-template-columns:40px 1fr;gap:0 18px}
+    .fix-build{grid-column:2;border-left:none;padding-left:0;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+    .bounds,.steps{grid-template-columns:1fr}
+    .step,.step + .step{padding:24px 0;border-left:none}
+    .step + .step{border-top:1px solid var(--line)}
+    .proof,.founder{grid-template-columns:1fr;gap:28px}
+  }
+  @media(max-width:760px){
+    section{padding:60px 0}
+    header{padding:72px 0 56px}
+    .fix{grid-template-columns:1fr}
+    .fix-num{padding:0 0 8px}
+    .fix-build{grid-column:1}
+    .faq summary{font-size:1.02rem;padding:18px 2px}
+    .nav-links{display:none}
+    .hamburger{display:block}
+    .mobile-menu{display:block}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="nav-links">
+      <a href="/how-we-build/" class="link">How We Build</a>
+      <a href="/#about" class="link">About</a>
+      <a href="/#packages" class="link">Packages</a>
+      <a href="/blog/" class="link">Insights</a>
+      <a href="#contact" class="cta" onclick="openContact();return false;">Book a free call</a>
+    </div>
+    <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/how-we-build/" onclick="closeMenu()">How We Build</a>
+  <a href="/#about" onclick="closeMenu()">About</a>
+  <a href="/#packages" onclick="closeMenu()">Packages</a>
+  <a href="/blog/" onclick="closeMenu()">Insights</a>
+  <a href="#contact" class="mcta" onclick="closeMenu();openContact();return false;">Book a free call</a>
+</div>
+
+<header>
+  <div class="wrap hero">
+    <span class="kicker">For title &amp; escrow companies</span>
+    <h1>Your escrow officer shouldn't be <span class="ember">the status line.</span></h1>
+    <p class="lead">Emberforge builds a file board and status links that sit alongside SoftPro, Qualia, ResWare, or RamQuest. Agents and lenders see where a file stands without calling, outside-party requests come off the whiteboard, and your closing software stays exactly where it is.</p>
+    <div class="hero-cta">
+      <button type="button" class="btn" onclick="openContact()">Book a free 30-minute call</button>
+      <a href="#fixes" class="btn-link">See what we'd build &darr;</a>
+    </div>
+    <p class="hero-note">No cost, no obligation. Erick replies within a day to set a time.</p>
+  </div>
+</header>
+
+<section id="fixes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Where a title office loses its day.</h2>
+      <p>Your closing software runs production. The work around it lives in email, on the whiteboard, and in one person's head.</p>
+    </div>
+    <div class="fixes">
+      <div class="fix reveal">
+        <span class="fix-num">01</span>
+        <div class="fix-pain">
+          <h3>"Where's my file?"</h3>
+          <p>Agents and lenders call and email all day asking where a file is. Your escrow officer answers, and the file she was working on stops.</p>
+        </div>
+        <div class="fix-build">
+          <span class="fix-label">What we'd build</span>
+          <p>A status link for every file. Agents and lenders open it to see the current stage and what's still outstanding, without calling anyone.</p>
+        </div>
+      </div>
+      <div class="fix reveal">
+        <span class="fix-num">02</span>
+        <div class="fix-pain">
+          <h3>Chasing outside parties</h3>
+          <p>Payoffs, surveys, HOA estoppels, insurance binders, and the CD get chased by email and tracked on a whiteboard.</p>
+        </div>
+        <div class="fix-build">
+          <span class="fix-label">What we'd build</span>
+          <p>A request list on each file showing what was asked for, from whom, and when, with follow-up reminders for anything still outstanding.</p>
+        </div>
+      </div>
+      <div class="fix reveal">
+        <span class="fix-num">03</span>
+        <div class="fix-pain">
+          <h3>Files stalling in curative</h3>
+          <p>Files sit in curative with nobody watching how long they've been waiting.</p>
+        </div>
+        <div class="fix-build">
+          <span class="fix-label">What we'd build</span>
+          <p>A file board that shows how many days each file has sat in its current stage and flags the ones waiting too long.</p>
+        </div>
+      </div>
+      <div class="fix reveal">
+        <span class="fix-num">04</span>
+        <div class="fix-pain">
+          <h3>One person holds the process</h3>
+          <p>One senior escrow officer carries the whole process in her head, so the office slows down when she's out.</p>
+        </div>
+        <div class="fix-build">
+          <span class="fix-label">What we'd build</span>
+          <p>Her steps written into the file board, so anyone can open a file, see what comes next, and keep it moving.</p>
+        </div>
+      </div>
+      <div class="fix reveal">
+        <span class="fix-num">05</span>
+        <div class="fix-pain">
+          <h3>Post-closing follow-up slips</h3>
+          <p>Once a file closes, recorded documents and final policies get forgotten.</p>
+        </div>
+        <div class="fix-build">
+          <span class="fix-label">What we'd build</span>
+          <p>Post-closing tasks that stay open on the board until the recorded documents and final policy are back.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="boundaries">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>It sits next to your closing software.</h2>
+    </div>
+    <div class="bounds reveal">
+      <div class="bound">
+        <h3>Your closing software stays</h3>
+        <p>SoftPro, Qualia, ResWare, or RamQuest keeps running production. Nothing about how you close changes.</p>
+      </div>
+      <div class="bound">
+        <h3>It never touches money</h3>
+        <p>No wires, no trust accounting, no settlement statements.</p>
+      </div>
+      <div class="bound">
+        <h3>It handles the in-between</h3>
+        <p>Status questions, outside-party requests, how long files wait, what comes next, and post-closing follow-up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap proof">
+    <div class="proof-copy reveal">
+      <h2>The same idea, already running.</h2>
+      <p>DoulaFlow is practice management software we built with Megan, a practicing doula. Every client's stage, due date, and next appointment sit on one board, so nobody has to ask where things stand.</p>
+      <p>It took two months to build and two in beta, and it's been live since June 2026. <a href="/#proof">See more of DoulaFlow</a></p>
+    </div>
+    <div class="reveal">
+      <div class="frame">
+        <div class="frame-bar"><i></i><i></i><i></i><span class="frame-url">app.mydoulaflow.com/clients</span></div>
+        <img src="/images/work/doulaflow-clients.png" width="1800" height="906" alt="The DoulaFlow client board, showing each client's due date, next appointment, services, and stage." loading="lazy" decoding="async">
+      </div>
+      <p class="shot-cap">A title file board works the same way: one row per file, with its stage and next step at a glance.</p>
+    </div>
+  </div>
+</section>
+
+<section id="start">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>How it starts.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <p class="step-k">Step 1</p>
+        <h3>Free 30-minute call</h3>
+        <p>Walk through where your files get stuck. We'll tell you whether a build makes sense for your office.</p>
+      </div>
+      <div class="step">
+        <p class="step-k">Step 2</p>
+        <div class="price">$1,000 <small>Blueprint</small></div>
+        <p>Usually 1–2 weeks. We map your file process and hand you a fixed scope and a firm price. <b>Credited in full toward your build.</b></p>
+      </div>
+      <div class="step">
+        <p class="step-k">Step 3</p>
+        <div class="price">From $8,000 <small>Build</small></div>
+        <p>A file board for your team is a Launch build, typically 4–6 weeks. Adding status links and outside-party reminders makes it a Workflow build, from $15,000, typically 6–10 weeks.</p>
+      </div>
+    </div>
+    <a href="/#packages" class="pricing-link reveal">See full pricing &rarr;</a>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="wrap founder">
+    <h2 class="reveal">Who you'd work with.</h2>
+    <div class="founder-copy reveal">
+      <p>Erick Quintanilla maps your process and builds the system himself. He spent 12+ years as a developer and process consultant in banking, healthcare, and aviation, mapping workflows by hand and automating the manual steps in between.</p>
+      <div class="founder-facts">
+        <span>Chattanooga, TN</span>
+        <a href="mailto:Erick@EmberforgeWorks.com">Erick@EmberforgeWorks.com</a>
+        <a href="https://www.linkedin.com/in/erick-quintanilla-a163bb36" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Questions title offices ask.</h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>Do we have to replace SoftPro, Qualia, ResWare, or RamQuest?</summary>
+        <div class="answer"><p>No. Your closing software keeps running production. This handles the status questions, outside-party requests, and follow-up that currently live in email and on the whiteboard.</p></div>
+      </details>
+      <details>
+        <summary>Will it connect to our closing software?</summary>
+        <div class="answer"><p>It depends on which system you run and what it allows. Finding that out is one of the first things the Blueprint answers, before a price is set.</p></div>
+      </details>
+      <details>
+        <summary>Does it handle wires, trust accounting, or settlement statements?</summary>
+        <div class="answer"><p>No. It doesn't touch money.</p></div>
+      </details>
+      <details>
+        <summary>Do agents and lenders need an account?</summary>
+        <div class="answer"><p>No. Each file gets a secure status link they can open without logging in.</p></div>
+      </details>
+      <details>
+        <summary>Who owns it?</summary>
+        <div class="answer">
+          <p>You do. Once the build is paid in full, the system, its source code, and your data belong to you, running on your own domain.</p>
+          <p>Emberforge brings a set of reusable tools and components to every project, and your system includes a permanent license to use them. If you need exclusivity in your market, that's scoped and priced in the Blueprint.</p>
+        </div>
+      </details>
+      <details>
+        <summary>How long does it take?</summary>
+        <div class="answer"><p>The Blueprint usually takes 1–2 weeks. A file board for your team typically takes 4–6 weeks to build. With status links and outside-party reminders, plan on 6–10 weeks.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta-sec" id="contact">
+  <div class="wrap">
+    <h2>Tell us where your files get stuck.</h2>
+    <p class="cta-copy">Thirty minutes, no cost. If a file board and status links would take calls off your escrow officer's plate, the next step is a Blueprint. If not, you'll hear that too.</p>
+    <button type="button" class="btn" onclick="openContact()">Book a free 30-minute call</button>
+    <div class="cta-sub">No cost, no obligation. Erick replies within a day to set a time.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
+    <div class="foot-links">
+      <span>Chattanooga, TN</span>
+      <a href="mailto:Erick@EmberforgeWorks.com">Erick@EmberforgeWorks.com</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CONTACT MODAL (same component as the homepage) -->
+<div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="cmTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" onclick="closeContact()" aria-label="Close">&times;</button>
+    <div id="formWrap">
+      <span class="kicker">Free 30-minute call</span>
+      <h3 id="cmTitle">Tell us where your files get stuck.</h3>
+      <p class="modal-sub">No cost, no obligation. Erick reads every inquiry and replies within a day to set a time.</p>
+      <div class="field"><label for="cName">Name</label><input id="cName" type="text" autocomplete="name" placeholder="Your name"></div>
+      <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" placeholder="you@company.com"></div>
+      <div class="field"><label for="cPhone">Phone <span class="opt">(optional)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"></div>
+      <div class="field"><label for="cProblem">What's the biggest problem you're trying to solve?</label><textarea id="cProblem" placeholder="Status calls from agents, files sitting in curative, one person holding the process…"></textarea></div>
+      <div class="field"><label for="cTried">What have you tried so far? <span class="opt">(optional)</span></label><textarea id="cTried" placeholder="Whiteboard, shared spreadsheet, email folders, reports from your closing software…"></textarea></div>
+      <div class="field"><label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label><textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Request my free call</button>
+      <p class="consent">By submitting, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
+      <div class="form-msg" id="formMsg"></div>
+    </div>
+    <div class="form-success" id="formSuccess" style="display:none">
+      <div class="check">&#10003;</div>
+      <h3>Got it — thanks.</h3>
+      <p>Your inquiry is on its way. Erick will reply to the email you provided, usually within a day, to find a time for the call.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){ e.target.style.transitionDelay = Math.min(i,4)*60 + "ms"; e.target.classList.add("in"); io.unobserve(e.target); }
+    });
+  },{threshold:.12});
+  document.querySelectorAll(".reveal").forEach((el)=>io.observe(el));
+
+  // mobile menu
+  function toggleMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    const open=m.classList.toggle('open');
+    h.classList.toggle('active', open);
+    h.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function closeMenu(){
+    const h=document.getElementById('hamburger'), m=document.getElementById('mobileMenu');
+    m.classList.remove('open'); h.classList.remove('active'); h.setAttribute('aria-expanded','false');
+  }
+
+  // contact modal (same behavior as the homepage; leads are tagged with this page)
+  const cm = document.getElementById('contactModal');
+  function openContact(){ cm.classList.add('open'); document.body.style.overflow='hidden'; setTimeout(()=>document.getElementById('cName').focus(),120); }
+  function closeContact(){ cm.classList.remove('open'); document.body.style.overflow=''; }
+  cm.addEventListener('click', e=>{ if(e.target===cm) closeContact(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ if(cm.classList.contains('open')) closeContact(); closeMenu(); } });
+
+  async function submitContact(){
+    const msg = document.getElementById('formMsg');
+    const btn = document.getElementById('cSubmit');
+    const name = document.getElementById('cName').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const problem = document.getElementById('cProblem').value.trim();
+    msg.className='form-msg';
+    if(!name || !email){ msg.className='form-msg err'; msg.textContent='Please add your name and email.'; return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ msg.className='form-msg err'; msg.textContent='That email doesn’t look right — mind checking it?'; return; }
+    if(!problem){ msg.className='form-msg err'; msg.textContent='Tell us the biggest problem you’re trying to solve — even a sentence helps.'; document.getElementById('cProblem').focus(); return; }
+    const payload = { name, email, phone: document.getElementById('cPhone').value.trim(), problem, tried: document.getElementById('cTried').value.trim(), why: document.getElementById('cWhy').value.trim(), intent: 'title', website: document.getElementById('cWebsite').value.trim() };
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try{
+      const res = await fetch('/api/contact', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) });
+      if(!res.ok) throw new Error('bad status');
+      document.getElementById('formWrap').style.display='none';
+      document.getElementById('formSuccess').style.display='block';
+    }catch(err){
+      btn.disabled=false; btn.textContent='Request my free call';
+      msg.className='form-msg err'; msg.innerHTML='Something went wrong sending that — please try again in a moment.';
+    }
+  }
+</script>
+
+</body>
+</html>
