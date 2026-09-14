@@ -185,23 +185,18 @@
 
   .sec-head h2:first-child{margin-top:0}
 
-  /* CAPABILITIES */
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .card{
-    background:linear-gradient(180deg,var(--panel),var(--bg-2));
-    border:1px solid var(--line);border-radius:14px;padding:30px 28px;
-    transition:.25s;position:relative;overflow:hidden;
-  }
-  .card::before{
-    content:"";position:absolute;top:0;left:0;right:0;height:2px;
-    background:var(--ember);
-    opacity:0;transition:.25s;
-  }
-  .card:hover{border-color:#33373f;transform:translateY(-3px)}
-  .card:hover::before{opacity:1}
-  .card .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ember-2);letter-spacing:.1em}
-  .card h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.32rem;margin:14px 0 12px;letter-spacing:-.01em}
-  .card p{color:var(--muted);font-size:.97rem}
+  /* WHO WE BUILD FOR */
+  .who-cols,.who-row{display:grid;grid-template-columns:210px 1fr 1fr 20px;gap:0 32px}
+  .who-cols{padding:0 4px 12px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+  .who-row{align-items:baseline;padding:24px 4px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .2s}
+  .who-row:hover{background:rgba(255,255,255,.02)}
+  .who-name{font-family:"Bricolage Grotesque";font-weight:700;font-size:1.18rem;letter-spacing:-.01em;line-height:1.3;color:var(--ink);transition:color .2s}
+  .who-pain{color:var(--muted);font-size:.97rem}
+  .who-build{color:var(--ink);font-size:.97rem}
+  .who-go{justify-self:end;color:var(--muted);transition:color .2s,transform .2s}
+  .who-row:hover .who-name,.who-row:hover .who-go{color:var(--ember-2)}
+  .who-row:hover .who-go{transform:translateX(3px)}
+  .who-links{display:flex;flex-wrap:wrap;gap:0 32px}
 
   /* PILLARS */
   .pillar{border-left:2px solid var(--ember);padding:4px 0 4px 20px}
@@ -542,7 +537,12 @@
     .founder-facts{grid-template-columns:repeat(2,auto)}
   }
   @media(max-width:760px){
-    .grid{grid-template-columns:1fr}
+    .who-cols{display:none}
+    .who{border-top:1px solid var(--line)}
+    .who-row{grid-template-columns:1fr auto;gap:8px 16px;padding:20px 2px}
+    .who-go{grid-column:2;grid-row:1}
+    .who-pain,.who-build{grid-column:1/-1}
+    .who-build::before{content:"\2192  ";color:var(--ember-2)}
     .tri{grid-template-columns:1fr}
     .founder-facts{grid-template-columns:1fr;gap:16px}
     .faq summary{font-size:1.02rem;padding:18px 2px}
@@ -786,31 +786,46 @@
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>Systems that replace the spreadsheets, the duct tape, and the five tools that don't talk to each other.</h2>
+      <h2>Built for businesses where the process is the product.</h2>
     </div>
-    <div class="grid">
-      <div class="card">
-        <span class="num">01</span>
-        <h3>Custom Applications</h3>
-        <p>Web and mobile platforms built around your workflow — not someone else's template. Client records, scheduling, documents, and reporting unified in one system your team actually uses.</p>
-      </div>
-      <div class="card">
-        <span class="num">02</span>
-        <h3>Process &amp; Workflow Automation</h3>
-        <p>We find the repetitive, error-prone work draining your team's hours — intake, document generation, data entry, follow-ups — and build software that handles it automatically. No more manual steps between tools that don't talk to each other.</p>
-      </div>
-      <div class="card">
-        <span class="num">03</span>
-        <h3>Web-Based Management Systems</h3>
-        <p>Secure, role-based platforms your team reaches from anywhere. Real-time data, automated workflows, and reporting that retires the spreadsheets and disconnected tools holding you back.</p>
-      </div>
-      <div class="card">
-        <span class="num">04</span>
-        <h3>End-to-End Delivery</h3>
-        <p>Architecture, build, deployment, hosting, and ongoing maintenance — handled. You get a working system running on your own domain, not a prototype and an invoice.</p>
-      </div>
+    <p class="lead-note reveal">Each of these runs on workflows that live in email, spreadsheets, and one veteran's memory. We build around the software you already run, not in place of it.</p>
+    <div class="who reveal">
+      <div class="who-cols" aria-hidden="true"><span>Industry</span><span>Where the day goes</span><span>What we build</span></div>
+      <a class="who-row" href="/title-escrow/">
+        <span class="who-name">Title &amp; escrow</span>
+        <span class="who-pain">Agents and lenders call all day asking where a file stands, and your escrow officer stops to answer.</span>
+        <span class="who-build">A file board and status links that sit alongside SoftPro, Qualia, ResWare, or RamQuest.</span>
+        <span class="who-go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="who-row" href="/industries/#insurance-brokerages">
+        <span class="who-name">Insurance brokerages</span>
+        <span class="who-pain">Every policy change gets re-keyed onto a carrier form and waits in someone's inbox.</span>
+        <span class="who-build">A servicing layer: client requests with tracked status, one staff queue, and renewal reminders.</span>
+        <span class="who-go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="who-row" href="/industries/#property-management">
+        <span class="who-name">Property management</span>
+        <span class="who-pain">Maintenance, owner questions, and turnover run on a chain of calls across five inboxes.</span>
+        <span class="who-build">Work orders, turnover checklists, and owner status links beside your accounting software.</span>
+        <span class="who-go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="who-row" href="/industries/#specialty-trades">
+        <span class="who-name">Specialty trade contractors</span>
+        <span class="who-pain">Inspections, certifications, and test reports live in a spreadsheet and a technician's truck.</span>
+        <span class="who-build">A job and compliance record for every site, with inspections that schedule themselves.</span>
+        <span class="who-go" aria-hidden="true">&rarr;</span>
+      </a>
+      <a class="who-row" href="/industries/#auto-dealers">
+        <span class="who-name">Used auto dealerships</span>
+        <span class="who-pain">Warranty claims turn into phone tag between the customer and three service shops.</span>
+        <span class="who-build">Customers start claims and self-schedule, shops update status, and staff see every claim in one place.</span>
+        <span class="who-go" aria-hidden="true">&rarr;</span>
+      </a>
     </div>
-    <a href="/how-we-build/" class="more-link reveal">See the six workflows we turn into clean systems &rarr;</a>
+    <div class="who-links reveal">
+      <a href="/industries/" class="more-link">See every industry in detail &rarr;</a>
+      <a href="/how-we-build/" class="more-link">Not on the list? See the workflows we build for any business &rarr;</a>
+    </div>
   </div>
 </section>
 
