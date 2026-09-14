@@ -32,7 +32,7 @@ const EXCLUDE = new Set([
   'build.mjs', 'package.json', 'package-lock.json', 'vercel.json',
   '.gitignore', '.DS_Store',
 ]);
-const isInternal = (name) => /\.(md|txt)$/i.test(name);
+const isInternal = (name) => /\.(md|txt)$/i.test(name) && name !== 'robots.txt';
 
 const cleanCss = new CleanCSS({ returnPromise: false });
 const assets = new Map(); // filename -> contents (deduped by content hash)
