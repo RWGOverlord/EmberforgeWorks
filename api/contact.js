@@ -22,6 +22,10 @@ export default async function handler(req, res) {
   const tried   = clean(body.tried);
   const why     = clean(body.why);
   const website = clean(body.website); // honeypot
+  // which button opened the form; anything unexpected is dropped
+  const INTENTS = { call: 'Free 30-minute call', blueprint: 'Blueprint (pricing section)' };
+  const intentKey = clean(body.intent);
+  const intent  = Object.hasOwn(INTENTS, intentKey) ? INTENTS[intentKey] : '';
 
   // Bots auto-fill the hidden "website" field. Drop silently, return success.
   if (website) return res.status(200).json({ ok: true });
@@ -52,6 +56,7 @@ export default async function handler(req, res) {
         <div style="font-family:monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#ffb347;margin-bottom:6px">New inquiry</div>
         <h2 style="margin:0 0 18px;color:#ecebe6;font-size:20px">${esc(name)}</h2>
         <table style="width:100%;border-collapse:collapse;font-size:14px;line-height:1.55">
+          ${rowHtml('Came from', intent)}
           ${rowHtml('Email', email)}
           ${rowHtml('Phone', phone)}
           ${rowHtml('Biggest problem', problem)}
@@ -65,6 +70,7 @@ export default async function handler(req, res) {
   const text = [
     `New inquiry — ${name}`,
     ``,
+    intent  ? `Came from: ${intent}`        : null,
     `Email: ${email}`,
     phone   ? `Phone: ${phone}`             : null,
     `Biggest problem: ${problem}`,

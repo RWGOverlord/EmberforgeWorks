@@ -173,7 +173,7 @@
       <a href="/#about" class="link">About</a>
       <a href="/#packages" class="link">Packages</a>
       <a href="/blog/" class="link">Insights</a>
-      <a href="#contact" class="cta" onclick="openContact();return false;">Start a Blueprint</a>
+      <a href="#contact" class="cta" onclick="openContact();return false;">Book a free call</a>
     </div>
     <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -186,7 +186,7 @@
   <a href="/#about" onclick="closeMenu()">About</a>
   <a href="/#packages" onclick="closeMenu()">Packages</a>
   <a href="/blog/" onclick="closeMenu()">Insights</a>
-  <a href="#contact" class="mcta" onclick="closeMenu();openContact();return false;">Start a Blueprint</a>
+  <a href="#contact" class="mcta" onclick="closeMenu();openContact();return false;">Book a free call</a>
 </div>
 
 <header>
@@ -310,9 +310,9 @@
   <div class="wrap">
     <span class="kicker">Start Here</span>
     <h2>Have a workflow like one of these?</h2>
-    <p class="cta-copy">Every Emberforge Works project starts with a Blueprint. We map your process, define the right build, and hand you a clear scope and fixed-price quote before any development begins. You keep the Blueprint whether you build with us or not.</p>
-    <button type="button" class="btn" onclick="openContact()">Start With a Blueprint</button>
-    <div class="cta-sub">Tell us about your workflow — we'll reply within a day.</div>
+    <p class="cta-copy">Start with a free 30-minute call. If it's a fit, we map your process in a Blueprint and hand you a clear scope and fixed-price quote before any development begins. You keep the Blueprint whether you build with us or not.</p>
+    <button type="button" class="btn" onclick="openContact()">Book a free 30-minute call</button>
+    <div class="cta-sub">No cost, no obligation. Erick replies within a day to set a time.</div>
   </div>
 </section>
 
@@ -320,6 +320,8 @@
   <div class="wrap">
     <a href="/" class="brand"><img class="logo-mark" src="/images/logo-mark.png" alt="Emberforge Works forge mark">Emberforge&nbsp;Works</a>
     <div class="foot-links">
+      <span>Chattanooga, TN</span>
+      <a href="mailto:Erick@EmberforgeWorks.com">Erick@EmberforgeWorks.com</a>
       <a href="/privacy/">Privacy Policy</a>
       <span>Custom operational software · Process &amp; workflow automation · © 2026</span>
     </div>
@@ -331,9 +333,9 @@
   <div class="modal">
     <button class="modal-close" type="button" onclick="closeContact()" aria-label="Close">&times;</button>
     <div id="formWrap">
-      <span class="kicker">Start a Blueprint</span>
-      <h3 id="cmTitle">Tell us what you're trying to solve.</h3>
-      <p class="modal-sub">A few details and we'll be in touch. The more you share, the sharper our first conversation.</p>
+      <span class="kicker">Free 30-minute call</span>
+      <h3 id="cmTitle">Tell us what's slowing you down.</h3>
+      <p class="modal-sub">No cost, no obligation. Erick reads every inquiry and replies within a day to set a time.</p>
       <div class="field"><label for="cName">Name</label><input id="cName" type="text" autocomplete="name" placeholder="Your name"></div>
       <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" placeholder="you@company.com"></div>
       <div class="field"><label for="cPhone">Phone <span class="opt">(optional)</span></label><input id="cPhone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"></div>
@@ -341,14 +343,14 @@
       <div class="field"><label for="cTried">What have you tried so far? <span class="opt">(optional)</span></label><textarea id="cTried" placeholder="Spreadsheets, off-the-shelf tools, internal builds, nothing yet…"></textarea></div>
       <div class="field"><label for="cWhy">Why is now the right time to address this? <span class="opt">(optional)</span></label><textarea id="cWhy" placeholder="What's changed, or what deadline is driving this."></textarea></div>
       <div class="hp" aria-hidden="true"><label>Website<input id="cWebsite" type="text" tabindex="-1" autocomplete="off"></label></div>
-      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Send inquiry</button>
+      <button class="btn" id="cSubmit" type="button" onclick="submitContact()">Request my free call</button>
       <p class="consent">By submitting, you agree to our <a href="/privacy/">Privacy Policy</a>.</p>
       <div class="form-msg" id="formMsg"></div>
     </div>
     <div class="form-success" id="formSuccess" style="display:none">
       <div class="check">&#10003;</div>
       <h3>Got it — thanks.</h3>
-      <p>Your inquiry is on its way. We'll reply to the email you provided, usually within a day.</p>
+      <p>Your inquiry is on its way. Erick will reply to the email you provided, usually within a day, to find a time for the call.</p>
     </div>
   </div>
 </div>
@@ -399,7 +401,7 @@
       document.getElementById('formWrap').style.display='none';
       document.getElementById('formSuccess').style.display='block';
     }catch(err){
-      btn.disabled=false; btn.textContent='Send inquiry';
+      btn.disabled=false; btn.textContent='Request my free call';
       msg.className='form-msg err'; msg.innerHTML='Something went wrong sending that — please try again in a moment.';
     }
   }
