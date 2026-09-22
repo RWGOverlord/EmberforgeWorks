@@ -28,7 +28,7 @@ const ASSETS_DIR = '_assets';
 
 // Top-level entries that are never part of the published site.
 const EXCLUDE = new Set([
-  'node_modules', 'dist', '.git', 'api',
+  'node_modules', 'dist', '.git', 'api', 'private',
   'build.mjs', 'package.json', 'package-lock.json', 'vercel.json',
   '.gitignore', '.DS_Store',
 ]);
